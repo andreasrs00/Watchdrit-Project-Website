@@ -43,7 +43,7 @@ nav{
   color: #0e2431;
   font-weight: 500;
   font-size: 1.2rem;
-  padding: 0.7rem;
+  
 }
 
 .navbar .nav-container a:hover {
@@ -54,6 +54,7 @@ nav{
   display: block;
   position: relative;
   height: 60px;
+  border-bottom: 0.2px black ;
 }
 
 .nav-container .checkbox {
@@ -111,22 +112,31 @@ nav{
   display: flex;
   flex-direction: column;
   transition: transform 0.5s ease-in-out;
-  text-align: center;
+  align-items: center;
 }
 
 .navbar .menu-items li {
+  text-align: left ;
   margin-bottom: 1.2rem;
+  border-bottom: 0.01px solid black;
+  width: 95%;
   font-size: 1.5rem;
   font-weight: 500;
+  padding-bottom: 6px;
 }
 
 .logo {
   position: absolute;
+  width: 130px;
+  height: 45px;
   top: 5px;
   right: 15px;
-  font-size: 1.2rem;
-  color: #0e2431;
+  background-image: url(/addons/Logo.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
 
 .nav-container input[type="checkbox"]:checked ~ .menu-items {
   transform: translateX(0);
@@ -148,3 +158,22 @@ nav{
   display: none;
 }
 
+.containerJudul{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.containerJudul h1{
+  text-align: center;
+  padding: 10px;
+
+}
+
+.containerJudul p{
+  text-align: center;
+  width: 10%;
+  letter-spacing: -10px;
+}
