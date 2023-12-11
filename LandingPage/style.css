@@ -19,6 +19,7 @@ nav{
 .navbar {
   width: 100%;
   box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
+  z-index: 1000;
 }
 
 .nav-container {
@@ -40,7 +41,7 @@ nav{
 
 .navbar .nav-container a {
   text-decoration: none;
-  color: #0e2431;
+  color: black;
   font-weight: 500;
   font-size: 1.2rem;
   
@@ -54,7 +55,7 @@ nav{
   display: block;
   position: relative;
   height: 60px;
-  border-bottom: 0.2px black ;
+  border-bottom: 0.2px black;
 }
 
 .nav-container .checkbox {
@@ -118,7 +119,7 @@ nav{
 .navbar .menu-items li {
   text-align: left ;
   margin-bottom: 1.2rem;
-  border-bottom: 0.01px solid black;
+  border-bottom: 0.01px solid white;
   width: 95%;
   font-size: 1.5rem;
   font-weight: 500;
@@ -157,6 +158,67 @@ nav{
 .nav-container input[type="checkbox"]:checked ~ .logo {
   display: none;
 }
+
+
+/* Carousel */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 600px;
+  z-index: 1;
+ }
+ 
+ .carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+ }
+ 
+ .carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit:cover;
+  /* opacity: 0.7; */
+ }
+ 
+ .carousel-slide:first-child {
+  opacity: 1;
+ }
+ .carousel-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+ }
+ 
+ .carousel-prev,
+ .carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 20px;
+  cursor: pointer;
+  user-select: none;
+  z-index: 10;
+ }
+ 
+ .carousel-prev {
+  left: 10px;
+ }
+ 
+ .carousel-next {
+  right: 10px;
+ }
 
 .containerJudul{
   display: flex;
