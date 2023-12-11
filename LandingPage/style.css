@@ -41,10 +41,15 @@ nav{
 
 .navbar .nav-container a {
   text-decoration: none;
-  color: black;
-  font-weight: 500;
+  color: white;
+  font-weight: bold;
   font-size: 1.2rem;
   
+}
+
+.navbar .nav-container a:hover {
+  color: #f8f9fa; /* Atur warna putih yang lebih terang saat di hover */
+  font-weight: bold; /* Membuat teks menjadi lebih tebal saat di hover */
 }
 
 .navbar .nav-container a:hover {
@@ -106,7 +111,7 @@ nav{
 
 .navbar .menu-items {
   padding-top: 120px;
-  box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.4);
   height: 100vh;
   width: 100%;
   transform: translate(-150%);
@@ -119,7 +124,7 @@ nav{
 .navbar .menu-items li {
   text-align: left ;
   margin-bottom: 1.2rem;
-  border-bottom: 0.01px solid white;
+  /* border-bottom: 0.01px solid white; */
   width: 95%;
   font-size: 1.5rem;
   font-weight: 500;
@@ -159,66 +164,26 @@ nav{
   display: none;
 }
 
+.carousel {
+  margin-top: 10px; /* Sesuaikan margin sesuai kebutuhan */
+}
 
-/* Carousel */
-.carousel-container {
-  position: relative;
-  overflow: hidden;
+.carousel-indicators li {
+  background-color: #000; /* Warna indicator sesuai preferensi Anda */
+}
+
+.carousel-inner img {
   width: 100%;
-  height: 600px;
-  z-index: 1;
- }
- 
- .carousel-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-  pointer-events: none;
- }
- 
- .carousel-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit:cover;
-  /* opacity: 0.7; */
- }
- 
- .carousel-slide:first-child {
-  opacity: 1;
- }
- .carousel-slide.active {
-  opacity: 1;
-  pointer-events: auto;
- }
- 
- .carousel-prev,
- .carousel-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
-  font-size: 20px;
-  cursor: pointer;
-  user-select: none;
-  z-index: 10;
- }
- 
- .carousel-prev {
-  left: 10px;
- }
- 
- .carousel-next {
-  right: 10px;
- }
+  height: 600px; /* Sesuaikan tinggi gambar sesuai kebutuhan */
+  object-fit: cover; /* Menyembunyikan gambar yang melebihi kotak carousel */
+}
+
+/* Optional: untuk responsif pada ukuran layar yang lebih kecil */
+@media (max-width: 768px) {
+  .carousel-inner img {
+    height: 300px; /* Sesuaikan tinggi gambar untuk tampilan layar kecil */
+  }
+}
 
 .containerJudul{
   display: flex;
