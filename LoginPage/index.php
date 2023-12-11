@@ -1,26 +1,30 @@
+<?php include_once 'proses.php'; 
+?>
+
 <!DOCTYPE html>
-<!-- Coding by CodingNepal | www.codingnepalweb.com-->
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Login and Registration Form in HTML & CSS | CodingLab</title>
-    <link
-      rel="stylesheet"
-      href="/Watchdrit-Project-Website/LoginPage/style.css"
-    />
-    <!-- Fontawesome CDN Link -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="/Watchdrit-Project-Website/LoginPage/style.css"
+    />
   </head>
   <body>
     <div class="container">
       <input type="checkbox" id="flip" />
       <div class="cover">
         <div class="front">
-          <img src="/Watchdrit-Project-Website/addons/Logo.png" alt="" />
+          <img
+            src="/Watchdrit-Project-Website/LoginPage/addons/Logo.png"
+            alt=""
+          />
           <div class="text">
             <span class="text-1"
               >Time Unleashed,<br />
@@ -34,23 +38,29 @@
         <div class="form-content">
           <div class="login-form">
             <div class="title">Login</div>
-            <form action="#">
+            <form action="#" method="POST">
               <div class="input-boxes">
                 <div class="input-box">
                   <i class="fas fa-envelope"></i>
-                  <input type="text" placeholder="Enter your email" required />
+                  <input
+                    type="text"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                  />
                 </div>
                 <div class="input-box">
                   <i class="fas fa-lock"></i>
                   <input
                     type="password"
+                    name="password"
                     placeholder="Enter your password"
                     required
                   />
                 </div>
                 <div class="text"><a href="#">Forgot password?</a></div>
                 <div class="button input-box">
-                  <input type="submit" value="Sumbit" />
+                  <input type="submit" name="login" value="Submit" />
                 </div>
                 <div class="text sign-up-text">
                   Don't have an account? <label for="flip">Signup now</label>
@@ -60,26 +70,37 @@
           </div>
           <div class="signup-form">
             <div class="title">Signup</div>
-            <form action="#">
+            <form action="#" method="POST">
               <div class="input-boxes">
                 <div class="input-box">
                   <i class="fas fa-user"></i>
-                  <input type="text" placeholder="Enter your name" required />
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter your name"
+                    required
+                  />
                 </div>
                 <div class="input-box">
                   <i class="fas fa-envelope"></i>
-                  <input type="text" placeholder="Enter your email" required />
+                  <input
+                    type="text"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                  />
                 </div>
                 <div class="input-box">
                   <i class="fas fa-lock"></i>
                   <input
                     type="password"
+                    name="password"
                     placeholder="Enter your password"
                     required
                   />
                 </div>
                 <div class="button input-box">
-                  <input type="submit" value="Sumbit" />
+                  <input type="submit" name="signup" value="Submit" />
                 </div>
                 <div class="text sign-up-text">
                   Already have an account? <label for="flip">Login now</label>
