@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Poppins:wght@100;300;400;500;600&family=Roboto+Mono:wght@300;400;600&family=Sarabun:wght@100;200;300;400;500;700&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -7,12 +6,11 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Libre Baskerville', serif;
 }
 
 nav{
-    position: -webkit-sticky;
-    position: sticky;
+    /* position: sticky; */
     top: 0;
 }
 
@@ -42,6 +40,7 @@ nav{
 .navbar .nav-container a {
   text-decoration: none;
   color: white;
+  font-family: 'Roboto Mono', monospace;
   font-weight: bold;
   font-size: 1.2rem;
   
@@ -178,6 +177,10 @@ nav{
   object-fit: cover; /* Menyembunyikan gambar yang melebihi kotak carousel */
 }
 
+#carouselExampleIndicators {
+  z-index: 1;
+}
+
 /* Optional: untuk responsif pada ukuran layar yang lebih kecil */
 @media (max-width: 768px) {
   .carousel-inner img {
@@ -191,16 +194,140 @@ nav{
   align-items: center;
   justify-content: center;
   gap: 10px;
+  margin-top: 50px ;
 }
 
 .containerJudul h1{
   text-align: center;
   padding: 10px;
-
+  font-family:'Libre Baskerville', serif ;
 }
 
 .containerJudul p{
   text-align: center;
   width: 10%;
   letter-spacing: -10px;
+}
+
+.koleksi {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; /* Sesuaikan margin sesuai kebutuhan */
+}
+
+.koleksi > div {
+  flex: 0 0 auto;
+  margin: 0 10px; /* Sesuaikan margin antar gambar sesuai kebutuhan */
+}
+
+.koleksi img {
+  width: 240px; /* Sesuaikan lebar gambar sesuai kebutuhan */
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Memastikan gambar berada di tengah */
+}
+
+.new-arrivals {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; /* Sesuaikan margin sesuai kebutuhan */
+}
+
+.new-arrivals > div {
+  flex: 0 0 auto;
+  margin: 0 10px; /* Sesuaikan margin antar gambar sesuai kebutuhan */
+}
+
+.new-arrivals img {
+  width: 240px; /* Sesuaikan lebar gambar sesuai kebutuhan */
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Memastikan gambar berada di tengah */
+}
+
+
+button.myButton {
+  display: inline-block;
+  padding: 10px 20px; /* Atur padding sesuai kebutuhan */
+  font-size: 16px; /* Atur ukuran font sesuai keinginan */
+  text-align: center;
+  text-decoration: none;
+  background-color: black; /* Warna latar belakang */
+  color: white; /* Warna teks */
+  border: black;
+  border-width: 5px;
+  border-radius: 0;
+  cursor: pointer;
+  margin-left: 710px;
+  margin-top: 80px;
+  font-family: 'Roboto Mono', monospace;
+}
+
+/* Style ketika tombol dihover */
+.myButton:hover {
+  background-color: white; /* Ubah warna latar belakang saat dihover */
+  color: black;
+  border: black;
+  border-width: 5px;
+}
+
+.limited {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px; /* Sesuaikan margin sesuai kebutuhan */
+}
+
+.limited > div {
+  flex: 0 0 auto;
+}
+
+.limited1 img {
+  width: 400px; /* Sesuaikan lebar gambar sesuai kebutuhan */
+  height: auto;
+  display: block;
+  margin-left: 320px;
+  /* border-radius: 10px; */
+}
+.limited0 img {
+  width: 200px; /* Sesuaikan lebar gambar sesuai kebutuhan */
+  height: auto;
+  display: block;
+  margin-right: 400px;
+}
+
+.limited0 h1{
+  margin-left: 42px;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.limited0 p{
+  margin-left: 31px;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.butl {
+  display: inline-block;
+  padding: 10px 20px; /* Atur padding sesuai kebutuhan */
+  font-size: 16px; /* Atur ukuran font sesuai keinginan */
+  text-align: center;
+  text-decoration: none;
+  background-color: black; /* Warna latar belakang */
+  color: white; /* Warna teks */
+  border: black;
+  border-width: 5px;
+  border-radius: 0;
+  cursor: pointer;
+  margin-left: 27px;
+  font-family: 'Roboto Mono', monospace;
+}
+
+/* Style ketika tombol dihover */
+.butl:hover {
+  background-color: white; /* Ubah warna latar belakang saat dihover */
+  color: black;
+  border: black;
+  border-width: 5px;
 }
