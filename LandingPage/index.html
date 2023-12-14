@@ -185,7 +185,7 @@
       </div>
       <div class="about-bottom">
         <div class="about-center">
-          <img src="centabt.jpg" alt="Gambar 3" />
+          <img src="centabtcpy.jpg" alt="Gambar 3" />
           <h1>Thank You</h1>
           <p>Thank you for choosing Watchdrit as your destination to discover the perfect timepiece.We aspire to build a lasting relationship, providing ongoing support as you find the watch that perfectly mirrors your style. 
             Thank you for allowing us to be a part of your watch discovery journey. We're excited to be your trusted ally every step of the way. We hope to exceed your expectations and 
@@ -196,37 +196,39 @@
         </div>
       </div>
     </div>
-
-
-    <div class="container-contact">
-      <h1>SEIKO BOUTIQUE INDONESIA</h1>
-      <h2>(Master Distributor Seiko Indonesia)</h2>
-      <p class="description">
-          Alamat: Jl. Melawai 9 No. 46, RT.3/RW.1, Melawai, Kec. Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta, 12160. Phone: +62-21-7208717
-      </p>
-      <p class="description">
-          O IKUTI KAMI DI INSTAGRAM
-      </p>
-      <p class="contact-us">
-          EMAIL ANDA <br>
-          INFO TAMBAHAN <br>
-          Delivery Information <br>
-          Sale Terms & Conditions <br>
-          Returns & Refunds <br>
-          Privacy Notice <br>
-          Shopping FAQs <br>
-          Testimonials <br>
-          BERLANGGANAN <br>
-          CUSTOMER SERVICE <br>
-          Help <br>
-          Shipping <br>
-          Returns <br>
-          My Account <br>
-          My Order <br>
-          Contact Us
-      </p>
-  </div>
     
+
+    <div class="contact-container">
+      <div class="shop-container">
+        <h1>SHOP</h1>
+        <p>Sport Watches <br>
+        Men's Watches <br>
+        Watchdrit's Watches <br>
+        Smartwatches <br>
+        Kids Watches <br>
+      </p>
+      </div>
+      <div class="abt-container">
+        <h1>ABOUT/NEED HELP?</h1>
+        <p>About <br>
+         Help<br>
+         Delivery Information<br>
+         FAQs <br>
+         Contact Us<br>
+         Privacy Policy <br>
+      </p>
+      </div>
+      <div class="form-container">
+        <h1>SIGN UP FOR OUR MAILING LIST</h1>
+        <p>Get instant updates about our new products and special promos!</p>
+        <form action="/submit" method="post">
+          <input type="email" id="email" name="email" placeholder="Email">
+          <br>
+          <input type="submit" value="Subscribe">
+        </form>
+      </div>
+      </div>
+   
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -238,7 +240,7 @@
         checkbox.addEventListener("click", function () {
           if (carousel.style.opacity === "" || carousel.style.opacity === "1") {
             carousel.style.transition = "opacity 0.5s ease-in-out";
-            carousel.style.opacity = "0.8"; // Ubah opacity carousel ketika checkbox di-check
+            carousel.style.opacity = "1"; // Ubah opacity carousel ketika checkbox di-check
           } else {
             carousel.style.opacity = "1"; // Kembalikan opacity carousel ketika checkbox di-uncheck
           }

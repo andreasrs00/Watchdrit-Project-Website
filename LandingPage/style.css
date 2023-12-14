@@ -40,7 +40,7 @@ nav{
 .navbar .nav-container a {
   text-decoration: none;
   color: white;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Libre Baskerville', serif;
   font-weight: bold;
   font-size: 1.2rem;
   
@@ -256,9 +256,7 @@ button.myButton {
   text-decoration: none;
   background-color: black; /* Warna latar belakang */
   color: white; /* Warna teks */
-  border: black;
-  border-width: 5px;
-  border-radius: 0;
+  border: 2px solid transparent;
   cursor: pointer;
   margin-left: 710px;
   margin-top: 80px;
@@ -269,8 +267,7 @@ button.myButton {
 .myButton:hover {
   background-color: white; /* Ubah warna latar belakang saat dihover */
   color: black;
-  border: black;
-  border-width: 5px;
+  border: 2px solid black;
 }
 
 .limited {
@@ -291,6 +288,8 @@ button.myButton {
   margin-left: 320px;
   /* border-radius: 10px; */
 }
+
+
 .limited0 img {
   width: 200px; /* Sesuaikan lebar gambar sesuai kebutuhan */
   height: auto;
@@ -298,14 +297,20 @@ button.myButton {
   margin-right: 400px;
 }
 
+.limited0 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .limited0 h1{
-  margin-left: 42px;
   font-family:'Libre Baskerville', serif ;
+  margin-right: 389px;
 }
 
 .limited0 p{
-  margin-left: 31px;
   font-family:'Libre Baskerville', serif ;
+  margin-right: 389px;
 }
 
 .butl {
@@ -322,6 +327,8 @@ button.myButton {
   cursor: pointer;
   margin-left: 27px;
   font-family: 'Roboto Mono', monospace;
+  margin-right: 410px;
+  border: 2px solid transparent;
 }
 
 /* Style ketika tombol dihover */
@@ -329,7 +336,7 @@ button.myButton {
   background-color: white; /* Ubah warna latar belakang saat dihover */
   color: black;
   border: black;
-  border-width: 5px;
+  border: 2px solid black;
 }
 
 /* Grid container untuk 2 bagian (atas dan bawah) */
@@ -363,10 +370,12 @@ button.myButton {
   width: 100%; /* Sesuaikan lebar gambar sesuai kebutuhan */
   height: auto;
   display: block;
+  transition: transform 0.3s;
 }
 
 .about-left {
   position: relative;
+  overflow: hidden;
 }
 
 .about-left h1 {
@@ -395,8 +404,13 @@ button.myButton {
   font-family: 'Roboto Mono', monospace;
 }
 
+.about-left:hover img{
+  transform: scale(1.1);
+}
+
 .about-right {
   position: relative;
+  overflow: hidden;
 }
 
 .about-right h1 {
@@ -425,10 +439,15 @@ button.myButton {
   font-family: 'Roboto Mono', monospace;
 }
 
+.about-right:hover img{
+  transform: scale(1.1);
+}
+
 .about-center {
   position: relative;
   text-align:left;
   color: white;
+  overflow: hidden;
 }
 
 .about-center h1,
@@ -440,11 +459,13 @@ button.myButton {
   transform: translate(-50%, -50%);
   width: 80%;
   font-family: 'Libre Baskerville', serif;
+  text-align: left;
 }
 
 .about-center h1 {
   top: 250px; /* Jarak dari atas */
   font-weight: bold;
+  color: white;
 }
 
 .about-center p {
@@ -465,37 +486,94 @@ button.myButton {
   font-family: 'Roboto Mono', monospace;
 }
 
-.container-contact {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  box-sizing: border-box;
+.about-center:hover img{
+  transform: scale(1.1);
 }
 
-h1 {
-  text-align: center;
-  font-size: 28px;
-  color: #333;
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-h2 {
-  font-size: 24px;
-  color: #444;
+.shop-container  {
+text-align: left;
+margin-left: 50px;
+margin-top: 100px;
 }
 
-.description {
-  color: #666;
-  margin-bottom: 20px;
+.shop-container h1{
+  font-family: 'Libre Baskerville', serif;
+  font-weight: bolder;
+  font-size:large;
 }
 
-.instagram {
-  color: #0077b6;
-  font-weight: bold;
+.shop-container p{
+  font-family: 'Libre Baskerville', serif;
+  font-size: medium;
+  line-height: 2.5;
 }
 
-.contact-us {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 16px;
-  color: #888;
+.abt-container  {
+  text-align: left;
+  margin-top: 98px;
+  }
+
+  .abt-container h1{
+  font-family: 'Libre Baskerville', serif;
+  font-weight: bolder;
+  font-size:large;
 }
+
+.abt-container p{
+  font-family: 'Libre Baskerville', serif;
+  font-size: medium;
+  line-height: 2.5;
+}
+
+.form-container  {
+  text-align: left;
+  margin-top: 95px;
+  }
+
+  .form-container h1{
+    font-family: 'Libre Baskerville', serif;
+    font-weight: bolder;
+    font-size:large;
+  }
+
+  .form-container p{
+    font-family: 'Libre Baskerville', serif;
+    font-size:medium;
+  }
+
+  .form-container form{
+    font-family: 'Libre Baskerville', serif;
+    font-weight: bolder;
+    height: 50px;
+  }
+  
+  .form-container input[type="email"] {
+    margin-bottom: 10px;
+    height: 50px;
+    text-indent: 10px;
+  }
+
+  .form-container input[type="submit"] {
+    margin-top: 10px;
+    width: 200px;
+    height: 50px;
+    background-color: black;
+    color: black;
+    background: linear-gradient(to right, black 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    /* border: 2px solid transparent; */
+    transition: background-position 0.5s ease;
+  }
+
+  .form-container input[type="submit"]:hover {
+    background-color:white; /* Ubah warna latar belakang saat dihover */
+    color: white;
+    /* border: 2px solid black; */
+    background-position: left bottom;
+  }
