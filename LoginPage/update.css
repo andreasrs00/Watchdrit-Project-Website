@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .forms {
+    position: relative;
+    max-width: 450px;
+    height: 350px;
+    width: 425px;
+    background: #fff;
+    padding: 40px 30px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    perspective: 2700px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .forms .update-password-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .forms .update-password-form .title {
+    position: relative;
+    font-size: 24px;
+    font-weight: 500;
+    color: #333;
+  }
+
+  .forms .update-password-form .title:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 25px;
+    background: black;
+  }
+
+  .forms .update-password-form .input-boxes {
+    margin-top: 30px;
+  }
+
+  .forms .update-password-form .input-box {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    margin: 10px 0;
+    position: relative;
+  }
+
+  .update-password-form .input-box input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .update-password-form .input-box input:focus,
+  .update-password-form .input-box input:valid {
+    border-color: black;
+  }
+
+  .update-password-form .input-box i {
+    position: absolute;
+    color: black;
+    font-size: 17px;
+  }
+
+  .forms .update-password-form .button {
+    color: #fff;
+    margin-top: 40px;
+  }
+
+  .forms .update-password-form .button input {
+    color: #fff;
+    background: black;
+    border-radius: 6px;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.4s ease;
+  }
+
+  .forms .update-password-form .button input:hover {
+    background: black;
+  }
+
+  .forms .update-password-form label {
+    color: black;
+    cursor: pointer;
+  }
+
+  .forms .update-password-form label:hover {
+    text-decoration: underline;
+  }
+}

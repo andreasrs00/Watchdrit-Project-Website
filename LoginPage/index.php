@@ -58,7 +58,7 @@
                     required
                   />
                 </div>
-                <div class="text"><a href="#">Forgot password?</a></div>
+                <div class="text"><a href="/Watchdrit-Project-Website/LoginPage/updatepassword.php">Update Password</a></div>
                 <div class="button input-box">
                   <input type="submit" name="login" value="Submit" />
                 </div>
