@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Poppins:wght@100;300;400;500;600&family=Roboto+Mono:wght@300;400;600&family=Sarabun:wght@100;200;300;400;500;700&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -7,18 +6,18 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Libre Baskerville', serif;
 }
 
 nav{
-    position: -webkit-sticky;
-    position: sticky;
+    /* position: sticky; */
     top: 0;
 }
 
 .navbar {
   width: 100%;
   box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
+  z-index: 1000;
 }
 
 .nav-container {
@@ -32,6 +31,7 @@ nav{
 
 .navbar .menu-items {
   display: flex;
+  padding-top: 60px;
 }
 
 .navbar .nav-container li {
@@ -40,10 +40,16 @@ nav{
 
 .navbar .nav-container a {
   text-decoration: none;
-  color: #0e2431;
-  font-weight: 500;
+  color: black;
+  font-family: 'Libre Baskerville', serif;
+  font-weight: bold;
   font-size: 1.2rem;
   
+}
+
+.navbar .nav-container a:hover {
+  color: #f8f9fa; /* Atur warna putih yang lebih terang saat di hover */
+  font-weight: bold; /* Membuat teks menjadi lebih tebal saat di hover */
 }
 
 .navbar .nav-container a:hover {
@@ -54,7 +60,7 @@ nav{
   display: block;
   position: relative;
   height: 60px;
-  border-bottom: 0.2px black ;
+  /* border-bottom: 0.2px black; */
 }
 
 .nav-container .checkbox {
@@ -105,7 +111,7 @@ nav{
 
 .navbar .menu-items {
   padding-top: 120px;
-  box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.4);
   height: 100vh;
   width: 100%;
   transform: translate(-150%);
@@ -118,7 +124,7 @@ nav{
 .navbar .menu-items li {
   text-align: left ;
   margin-bottom: 1.2rem;
-  border-bottom: 0.01px solid black;
+  /* border-bottom: 0.01px solid white; */
   width: 95%;
   font-size: 1.5rem;
   font-weight: 500;
@@ -156,4 +162,76 @@ nav{
 
 .nav-container input[type="checkbox"]:checked ~ .logo {
   display: none;
+}
+
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Membagi ke dalam 4 kolom */
+  gap: 20px; /* Jarak antar item */
+  padding: 20px;
+}
+
+/* Style untuk setiap item dalam katalog */
+.item {
+  /* border: 1px solid #ccc; */
+  padding: 15px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.item img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  transition: transform 0.3 ease;
+}
+
+.item h3 {
+  margin-top: 30px;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.item p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #555;
+}
+
+
+.item .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease; /* Efek transisi untuk gambar tambahan */
+}
+
+.item:hover .overlay {
+  opacity: 1;
+}
+
+.item:hover img {
+  transform: scale(0.9); /* Mengurangi ukuran gambar utama saat hover */
+}
+
+.item .overlay img {
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.3s ease; /* Efek transisi untuk gambar tambahan */
+}
+
+.item:hover .overlay img {
+  transform: scale(1); /* Mempertahankan ukuran gambar tambahan sesuai gambar utama */
+}
+
+.item button {
+  background-color: black;
+  color: white;
+  height: 30px;
+  width: 150px;
+  margin-top: 10px;
 }
