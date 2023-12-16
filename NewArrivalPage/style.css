@@ -10,7 +10,7 @@ body {
 }
 
 nav{
-    /* position: sticky; */
+    position: sticky;
     top: 0;
 }
 
@@ -18,7 +18,6 @@ nav{
   width: 100%;
   box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
   z-index: 1000;
-  position: fixed;
   background-color: #fff;
 }
 
@@ -164,6 +163,41 @@ nav{
 
 .nav-container input[type="checkbox"]:checked ~ .logo {
   display: none;
+}
+
+.containerIsi {
+  /* text-align: center;
+  margin-top: 130px; Sesuaikan jarak dari navbar
+  position: relative;
+  z-index: 1000; */
+  background-color: #f8f9fa; /* Warna latar belakang */
+  padding: 20px 0; /* Sesuaikan padding atas dan bawah */
+  text-align: center;
+}
+
+/* Gaya untuk judul koleksi */
+.containerJudul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 0;
+  margin-bottom: 20px; /* Sesuaikan jarak dari judul ke katalog */
+}
+
+.containerJudul h1 {
+  text-align: center;
+  padding: 10px;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 28px; /* Sesuaikan ukuran font sesuai kebutuhan */
+}
+
+.containerJudul hr {
+  flex-grow: 1;
+  border: none;
+  height: 1px;
+  background-color: black;
 }
 
 .catalog {

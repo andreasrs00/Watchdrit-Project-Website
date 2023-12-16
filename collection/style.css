@@ -166,3 +166,123 @@ nav{
   display: none;
 }
 
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Membagi ke dalam 4 kolom */
+  gap: 20px; /* Jarak antar item */
+  padding: 20px;
+  /* margin-top: 120px; */
+}
+
+/* Style untuk setiap item dalam katalog */
+.item {
+  /* border: 1px solid #ccc; */
+  padding: 15px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.item img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  transition: transform 0.3 ease;
+}
+
+.item h3 {
+  margin-top: 30px;
+  font-size: 18px;
+  margin-bottom: 8px;
+  font-family: 'Libre Baskerville', serif;
+}
+
+.item p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #555;
+  font-family: 'Libre Baskerville', serif;
+}
+
+
+.item .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease; /* Efek transisi untuk gambar tambahan */
+}
+
+.item:hover .overlay {
+  opacity: 1;
+}
+
+.item:hover img {
+  transform: scale(0.9); /* Mengurangi ukuran gambar utama saat hover */
+}
+
+.item .overlay img {
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.3s ease; /* Efek transisi untuk gambar tambahan */
+}
+
+.item:hover .overlay img {
+  transform: scale(1); /* Mempertahankan ukuran gambar tambahan sesuai gambar utama */
+}
+
+.item button {
+  background-color: black;
+  color: white;
+  height: 30px;
+  width: 150px;
+  margin-top: 10px;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.item a {
+  background-color: black;
+  color: white;
+  height: 40px;
+  width: 150px;
+  margin-top: 10px;
+  font-family: 'Roboto Mono', monospace;
+  text-align: center;
+}
+
+.containerJudul{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 50px ;
+}
+
+.containerJudul h1{
+  text-align: center;
+  padding: 10px;
+  font-family:'Libre Baskerville', serif ;
+}
+
+.containerJudul p{
+  text-align: center;
+  width: 10%;
+  letter-spacing: -10px;
+}
+
+
+
+.show-cart li {
+  display: flex;
+}
+.card {
+  margin-bottom: 20px;
+}
+.card-img-top {
+  width: 200px;
+  height: 200px;
+  align-self: center;
+}
