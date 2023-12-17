@@ -1,3 +1,6 @@
+<?php include_once 'checklogin.php'; 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,9 +30,13 @@
           <div class="logo"></div>
           <div class="menu-items">
             <li><a href="#">Home</a></li>
-            <li>
+            <li
+              id="login"
+              style="<?php echo $is_logged_in ? 'display:none;' : 'display:block;'; ?>"
+            >
               <a href="/Watchdrit-Project-Website/LoginPage/index.php">Login</a>
             </li>
+
             <li>
               <a href="/Watchdrit-Project-Website/NewArrivalPage/index.html"
                 >New Arrivals</a
@@ -38,6 +45,14 @@
             <li><a href="#">Collection</a></li>
             <li><a href="#">Testimoni</a></li>
             <li><a href="#">Contact Us</a></li>
+            <li
+              id="logout"
+              style="<?php echo $is_logged_in ? 'display:block;' : 'display:none;'; ?>"
+            >
+              <a href="/Watchdrit-Project-Website/Landingpage/logout.php"
+                >Logout</a
+              >
+            </li>
           </div>
         </div>
       </div>
@@ -165,89 +180,115 @@
       </div>
     </div>
 
-
     <div class="about-container">
       <div class="about-top">
         <div class="about-left">
           <img src="leftabt.jpg" alt="Gambar 1" />
           <h1>Welcome to Watchdrit</h1>
-          <p>We specialize in offering a curated collection of exquisite timepieces from renowned global brands. 
-            Our mission is to provide a distinct and satisfying shopping experience.
-            With a profound understanding of the watch industry, we offer a diverse range of watches, ranging from classic elegance to innovative modern designs."</p>
+          <p>
+            We specialize in offering a curated collection of exquisite
+            timepieces from renowned global brands. Our mission is to provide a
+            distinct and satisfying shopping experience. With a profound
+            understanding of the watch industry, we offer a diverse range of
+            watches, ranging from classic elegance to innovative modern
+            designs."
+          </p>
         </div>
         <div class="about-right">
           <img src="rightabt.jpg" alt="Gambar 2" />
           <h1>Our Belief</h1>
-          <p>Watches are more than timepieces; they express style and individuality. We're dedicated to helping customers find their ideal watch, customized to their preferences.
-            We don't just offer premium products; 
-            we prioritize exceptional service. Our expert team answers queries, provides advice, ensuring an unparalleled shopping experience at [Your Store Name]</p>
+          <p>
+            Watches are more than timepieces; they express style and
+            individuality. We're dedicated to helping customers find their ideal
+            watch, customized to their preferences. We don't just offer premium
+            products; we prioritize exceptional service. Our expert team answers
+            queries, provides advice, ensuring an unparalleled shopping
+            experience at [Your Store Name]
+          </p>
         </div>
       </div>
       <div class="about-bottom">
         <div class="about-center">
           <img src="centabtcpy.jpg" alt="Gambar 3" />
           <h1>Thank You</h1>
-          <p>Thank you for choosing Watchdrit as your destination to discover the perfect timepiece.We aspire to build a lasting relationship, providing ongoing support as you find the watch that perfectly mirrors your style. 
-            Thank you for allowing us to be a part of your watch discovery journey. We're excited to be your trusted ally every step of the way. We hope to exceed your expectations and 
-            become a trusted partner in your journey to find a watch that you'll cherish.</p>
+          <p>
+            Thank you for choosing Watchdrit as your destination to discover the
+            perfect timepiece.We aspire to build a lasting relationship,
+            providing ongoing support as you find the watch that perfectly
+            mirrors your style. Thank you for allowing us to be a part of your
+            watch discovery journey. We're excited to be your trusted ally every
+            step of the way. We hope to exceed your expectations and become a
+            trusted partner in your journey to find a watch that you'll cherish.
+          </p>
           <h6>Warm regards,</h6>
           <h3>Watchdrit's Team</h3>
-          </div>
         </div>
       </div>
     </div>
-    
 
     <div class="contact-container">
       <div class="shop-container">
         <h1>SHOP</h1>
-        <p>Sport Watches <br>
-        Men's Watches <br>
-        Watchdrit's Watches <br>
-        Smartwatches <br>
-        Kids Watches <br>
-      </p>
+        <p>
+          Sport Watches <br />
+          Men's Watches <br />
+          Watchdrit's Watches <br />
+          Smartwatches <br />
+          Kids Watches <br />
+        </p>
       </div>
       <div class="abt-container">
         <h1>ABOUT/NEED HELP?</h1>
-        <p>About <br>
-         Help<br>
-         Delivery Information<br>
-         FAQs <br>
-         Contact Us<br>
-         Privacy Policy <br>
-      </p>
+        <p>
+          About <br />
+          Help<br />
+          Delivery Information<br />
+          FAQs <br />
+          Contact Us<br />
+          Privacy Policy <br />
+        </p>
       </div>
       <div class="form-container">
         <h1>SIGN UP FOR OUR MAILING LIST</h1>
         <p>Get instant updates about our new products and special promos!</p>
         <form action="/submit" method="post">
-          <input type="email" id="email" name="email" placeholder="Email">
-          <br>
-          <input type="submit" value="Subscribe">
+          <input type="email" id="email" name="email" placeholder="Email" />
+          <br />
+          <input type="submit" value="Subscribe" />
         </form>
       </div>
-      </div>
-   
+    </div>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
+            document.addEventListener("DOMContentLoaded", function () {
         const checkbox = document.querySelector(".checkbox");
         const carousel = document.getElementById("carouselExampleIndicators");
         const prevButton = document.querySelector(".carousel-control-prev");
         const nextButton = document.querySelector(".carousel-control-next");
+        const loginNavItem = document.getElementById("login");
+        const logoutNavItem = document.getElementById("logout");
 
         checkbox.addEventListener("click", function () {
           if (carousel.style.opacity === "" || carousel.style.opacity === "1") {
             carousel.style.transition = "opacity 0.5s ease-in-out";
-            carousel.style.opacity = "1"; // Ubah opacity carousel ketika checkbox di-check
+            carousel.style.opacity = "1";
           } else {
-            carousel.style.opacity = "1"; // Kembalikan opacity carousel ketika checkbox di-uncheck
+            carousel.style.opacity = "1";
           }
         });
 
         prevButton.style.display = "none";
         nextButton.style.display = "none";
+
+        // Check if the user is logged in and toggle navbar items accordingly
+        const isLoggedIn = <?php echo $is_logged_in ? 'true' : 'false'; ?>;
+        if (isLoggedIn) {
+          loginNavItem.style.display = "none";
+          logoutNavItem.style.display = "block";
+        } else {
+          loginNavItem.style.display = "block";
+          logoutNavItem.style.display = "none";
+        }
       });
     </script>
   </body>
