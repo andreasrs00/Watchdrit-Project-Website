@@ -16,51 +16,58 @@ document.addEventListener("DOMContentLoaded", function () {
     cartOverlay.style.display = "none";
   });
 
+  clearCartBtn.addEventListener("click", function () {
+    // Ask for confirmation before clearing the cart
+    const isConfirmed = confirm("Are you sure you want to clear the cart?");
+    if (isConfirmed) {
+      clearCart();
+    }
+  });
+
   addToCartButtons.forEach((button) => {
-    // Menambah event listener 'click' pada setiap tombol 'add-to-cart'
     button.addEventListener("click", function (event) {
-      // Mendapatkan nama dan harga item dari atribut data pada tombol yang diklik
       const itemName = event.target.getAttribute("data-name");
       const itemPrice = event.target.getAttribute("data-price");
 
-      // Membuat objek baru untuk item yang akan ditambahkan ke keranjang
       const newItem = {
         name: itemName,
-        price: parseInt(itemPrice.replace(/\D/g, "")), // Menghapus karakter non-digit dari harga dan mengonversi menjadi angka
+        price: parseInt(itemPrice.replace(/\D/g, "")),
       };
 
-      // Memanggil fungsi untuk menambahkan item ke dalam keranjang
       addItemToCart(newItem);
     });
   });
 
-  // Fungsi untuk menambahkan item ke dalam keranjang
   function addItemToCart(item) {
-    // Membuat elemen div untuk merepresentasikan item dalam keranjang
     const cartItem = document.createElement("div");
     cartItem.classList.add("cart-item");
-    cartItem.innerHTML = "${item.name} - $${item.price}";
+    cartItem.innerHTML = `${item.name} - $${item.price}`;
 
-    // Menambah elemen item ke dalam daftar item pada keranjang
     cartItems.appendChild(cartItem);
 
-    // Memperbarui total harga di keranjang setelah menambahkan item baru
     updateCartTotal();
   }
 
-  // Fungsi untuk mengupdate total harga pada keranjang
   function updateCartTotal() {
-    // Mengambil semua elemen dengan kelas 'cart-item'
     const cartItemPrices = document.querySelectorAll(".cart-item");
     let total = 0;
 
     cartItemPrices.forEach((item) => {
-      // Mendapatkan harga dari teks dalam elemen dan menjumlahkannya untuk mendapatkan total harga
-      const itemPrice = parseInt(item.textContent.replace(/\D/g, ""));
+      const itemPrice = parseInt(item.textContent.match(/\d+/)[0]);
       total += itemPrice;
     });
 
-    // Memperbarui teks total harga di keranjang
     cartTotal.textContent = `Total: $${total}`;
+  }
+
+  function clearCart() {
+    // Remove all child elements representing cart items
+    const cartItemElements = document.querySelectorAll(".cart-item");
+    cartItemElements.forEach((cartItem) => {
+      cartItems.removeChild(cartItem);
+    });
+
+    // Reset the total to zero
+    updateCartTotal();
   }
 });
