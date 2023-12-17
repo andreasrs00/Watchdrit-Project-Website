@@ -42,7 +42,7 @@
                 >New Arrivals</a
               >
             </li>
-            <li><a href="#">Collection</a></li>
+            <li><a href="/Watchdrit-Project-Website/collection/index.html">Collection</a></li>
             <li><a href="#">Testimoni</a></li>
             <li><a href="#">Contact Us</a></li>
             <li

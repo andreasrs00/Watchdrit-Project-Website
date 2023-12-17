@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Poppins:wght@100;300;400;500;600&family=Roboto+Mono:wght@300;400;600&family=Sarabun:wght@100;200;300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Poppins:wght@100;300;400;500;600&family=Roboto+Mono:wght@300;400;600&family=Sarabun:wght@100;200;300;400;500;700&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -6,12 +6,12 @@
 }
 
 body {
-  font-family: 'Libre Baskerville', serif;
+  font-family: "Libre Baskerville", serif;
 }
 
-nav{
-    /* position: sticky; */
-    top: 0;
+nav {
+  /* position: sticky; */
+  top: 0;
 }
 
 .navbar {
@@ -43,10 +43,9 @@ nav{
 .navbar .nav-container a {
   text-decoration: none;
   color: black;
-  font-family: 'Libre Baskerville', serif;
+  font-family: "Libre Baskerville", serif;
   font-weight: bold;
   font-size: 1.2rem;
-  
 }
 
 .navbar .nav-container a:hover {
@@ -124,7 +123,7 @@ nav{
 }
 
 .navbar .menu-items li {
-  text-align: left ;
+  text-align: left;
   margin-bottom: 1.2rem;
   /* border-bottom: 0.01px solid white; */
   width: 95%;
@@ -144,7 +143,6 @@ nav{
   background-position: center;
   background-repeat: no-repeat;
 }
-
 
 .nav-container input[type="checkbox"]:checked ~ .menu-items {
   transform: translateX(0);
@@ -194,16 +192,15 @@ nav{
   margin-top: 30px;
   font-size: 18px;
   margin-bottom: 8px;
-  font-family: 'Libre Baskerville', serif;
+  font-family: "Libre Baskerville", serif;
 }
 
 .item p {
   margin-top: 10px;
   font-size: 16px;
   color: #555;
-  font-family: 'Libre Baskerville', serif;
+  font-family: "Libre Baskerville", serif;
 }
-
 
 .item .overlay {
   position: absolute;
@@ -230,7 +227,9 @@ nav{
 }
 
 .item:hover .overlay img {
-  transform: scale(1); /* Mempertahankan ukuran gambar tambahan sesuai gambar utama */
+  transform: scale(
+    1
+  ); /* Mempertahankan ukuran gambar tambahan sesuai gambar utama */
 }
 
 .item button {
@@ -239,7 +238,7 @@ nav{
   height: 30px;
   width: 150px;
   margin-top: 10px;
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
 }
 
 .item a {
@@ -248,41 +247,89 @@ nav{
   height: 40px;
   width: 150px;
   margin-top: 10px;
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
   text-align: center;
 }
 
-.containerJudul{
+.containerJudul {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin-top: 50px ;
+  margin-top: 50px;
 }
 
-.containerJudul h1{
+.containerJudul h1 {
   text-align: center;
   padding: 10px;
-  font-family:'Libre Baskerville', serif ;
+  font-family: "Libre Baskerville", serif;
 }
 
-.containerJudul p{
+.containerJudul p {
   text-align: center;
   width: 10%;
   letter-spacing: -10px;
 }
 
-
-
-.show-cart li {
-  display: flex;
+/* Basic styling for the cart */
+.cart-container {
+  position: relative;
+  text-align: center;
+  margin-top: 20px;
 }
-.card {
-  margin-bottom: 20px;
+
+.cart-btn {
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
-.card-img-top {
-  width: 200px;
-  height: 200px;
-  align-self: center;
+
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 400px;
+}
+
+.close-cart {
+  float: right;
+  cursor: pointer;
+}
+
+.cart-items {
+  margin-top: 20px;
+}
+
+.cart-item {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}
+
+.cart-total {
+  margin-top: 20px;
+}
+
+.clear-cart {
+  margin-top: 20px;
+  padding: 8px 16px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
