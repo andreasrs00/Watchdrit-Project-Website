@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function addItemToCart(item) {
     const cartItem = document.createElement("div");
     cartItem.classList.add("cart-item");
-    cartItem.innerHTML = `${item.name} - $${item.price}`;
+    cartItem.innerHTML = `${item.name} - RP ${item.price}`;
 
     cartItems.appendChild(cartItem);
 
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
       total += itemPrice;
     });
 
-    cartTotal.textContent = `Total: $${total}`;
+    cartTotal.textContent = `Total: RP ${total.toLocaleString("id-ID")}`;
   }
 
   function clearCart() {
