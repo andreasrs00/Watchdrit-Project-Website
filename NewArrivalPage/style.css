@@ -10,7 +10,7 @@ body {
 }
 
 nav{
-    position: sticky;
+    /* position: sticky; */
     top: 0;
 }
 
@@ -18,6 +18,7 @@ nav{
   width: 100%;
   box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
   z-index: 1000;
+  position: fixed;
   background-color: #fff;
 }
 
@@ -175,30 +176,6 @@ nav{
   text-align: center;
 }
 
-/* Gaya untuk judul koleksi */
-.containerJudul {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 0;
-  margin-bottom: 20px; /* Sesuaikan jarak dari judul ke katalog */
-}
-
-.containerJudul h1 {
-  text-align: center;
-  padding: 10px;
-  font-family: 'Libre Baskerville', serif;
-  font-size: 28px; /* Sesuaikan ukuran font sesuai kebutuhan */
-}
-
-.containerJudul hr {
-  flex-grow: 1;
-  border: none;
-  height: 1px;
-  background-color: black;
-}
 
 .catalog {
   display: grid;
@@ -228,21 +205,22 @@ nav{
   margin-top: 30px;
   font-size: 18px;
   margin-bottom: 8px;
+  font-family: "Libre Baskerville", serif;
 }
 
 .item p {
   margin-top: 10px;
   font-size: 16px;
   color: #555;
+  font-family: "Libre Baskerville", serif;
 }
-
 
 .item .overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 80%;
   opacity: 0;
   transition: opacity 0.3s ease; /* Efek transisi untuk gambar tambahan */
 }
@@ -262,57 +240,116 @@ nav{
 }
 
 .item:hover .overlay img {
-  transform: scale(1); /* Mempertahankan ukuran gambar tambahan sesuai gambar utama */
+  transform: scale(
+    1
+  ); /* Mempertahankan ukuran gambar tambahan sesuai gambar utama */
 }
 
-.item button {
+.item a {
   background-color: black;
   color: white;
-  height: 30px;
+  height: 40px;
   width: 150px;
   margin-top: 10px;
+  font-family: "Roboto Mono", monospace;
+  text-align: center;
+  z-index: 100000;
 }
 
-/* CSS untuk shopping cart */
-.shopping-cart {
-    position: fixed; /* Gunakan position fixed agar shopping cart tetap di layar saat digulir */
-    top: 50px; /* Atur jarak dari bagian atas */
-    right: 20px; /* Atur jarak dari sisi kanan */
-    width: 250px; /* Sesuaikan lebar sesuai kebutuhan */
-    background-color: #f8f9fa; /* Warna latar belakang */
-    padding: 15px;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Efek bayangan */
-    z-index: 1000; /* Pastikan shopping cart muncul di atas konten lain */
-  }
-  
-  /* Gaya untuk judul shopping cart */
-  .shopping-cart h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  /* Gaya untuk daftar item dalam shopping cart */
-  .shopping-cart .cart-items {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 10px;
-  }
-  
-  /* Gaya untuk tombol checkout */
-  .shopping-cart .checkout-btn {
-    display: block;
-    width: 100%;
-    padding: 8px 0;
-    text-align: center;
-    background-color: #000;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
-  .shopping-cart .checkout-btn:hover {
-    background-color: #333;
-  }
-  
+.item a:hover{
+  background-color: white;
+  color: black;
+}
+
+.containerJudul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 50px;
+}
+
+.containerJudul h1 {
+  text-align: center;
+  padding: 10px;
+  font-family: "Libre Baskerville", serif;
+}
+
+.containerJudul p {
+  text-align: center;
+  width: 10%;
+  letter-spacing: -10px;
+}
+
+/* Basic styling for the cart */
+.cart-container {
+  position: relative;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.cart-btn {
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 400px;
+}
+
+.close-cart {
+  float: right;
+  cursor: pointer;
+}
+
+.cart-items {
+  margin-top: 20px;
+}
+
+.cart-item {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}
+
+.cart-total {
+  margin-top: 20px;
+}
+
+.clear-cart {
+  margin-top: 20px;
+  padding: 8px 16px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.buy {
+  margin-top: 20px;
+  padding: 8px 16px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
