@@ -8,8 +8,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const addToCartButtons = document.querySelectorAll(".add-to-cart");
 
   // Event listeners
-  cartBtn.addEventListener("click", function () {
-    cartOverlay.style.display = "block";
+  // cartBtn.addEventListener("click", function () {
+  //   cartOverlay.style.display = "block";
+  // });
+
+  addToCartButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      cartOverlay.style.display = "block";
+    });
   });
 
   closeCartBtn.addEventListener("click", function () {

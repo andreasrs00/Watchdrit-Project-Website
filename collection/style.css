@@ -166,7 +166,7 @@ nav {
 
 .catalog {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Membagi ke dalam 4 kolom */
+  grid-template-columns: repeat(4, 1fr) !important; /* Membagi ke dalam 4 kolom */
   gap: 20px; /* Jarak antar item */
   padding: 20px;
   /* margin-top: 120px; */
@@ -179,6 +179,9 @@ nav {
   text-align: center;
   position: relative;
   overflow: hidden;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center;
 }
 
 .item img {
@@ -238,25 +241,29 @@ nav {
   color: white;
   height: 40px;
   width: 150px;
-  margin-top: 10px;
+  margin-top: auto;
   font-family: "Roboto Mono", monospace;
   text-align: center;
-  z-index: 100000;
+  /* z-index: 100000; */
   border: 2px solid transparent;
   border-radius: 0;
+  display: inline-block;
 }
 
 .item a:hover{
-  background-color: white;
-  color: black;
+  background-color: white !important;
+  color: black !important;
   height: 40px;
   width: 150px;
   margin-top: 10px;
   font-family: "Roboto Mono", monospace;
   text-align: center;
   z-index: 100000;
-  border: 2px solid black;
+  border-color: black !important;
+  outline: none !important;
 }
+
+
 
 .containerJudul {
   display: flex;
@@ -280,42 +287,19 @@ nav {
 }
 
 /* Basic styling for the cart */
-.cart-container {
-  position: relative;
-  text-align: center;
-  margin-top: 20px;
-}
-
-.cart-btn {
-  padding: 10px 20px;
-  background-color: black;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-family: "Roboto Mono", monospace;
-  border: 2px solid transparent;
-}
-
-.cart-btn:hover {
-  padding: 10px 20px;
-  background-color: white;
-  color: black;
-  border: none;
-  cursor: pointer;
-  font-family: "Roboto Mono", monospace;
-  border: 2px solid black;
-}
 
 .cart-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 20px;
+  width: 320px;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0);
   display: none;
   justify-content: center;
   align-items: center;
+  z-index: 998;
+  margin-top: 60px;
 }
 
 .cart {
@@ -354,6 +338,7 @@ nav {
   border: none;
   cursor: pointer;
   font-family: "Roboto Mono", monospace;
+  margin-bottom: 20px;
 }
 
 .buy {
@@ -364,5 +349,125 @@ nav {
   border: none;
   cursor: pointer;
   font-family: "Roboto Mono", monospace;
+}
+
+
+/* Aturan CSS untuk layar kecil (smartphone) */
+@media only screen and (max-width: 600px) {
+  .catalog {
+    grid-template-columns: repeat(2, 1fr); /* Ubah menjadi 2 kolom pada layar kecil */
+    gap: 10px; /* Sesuaikan jarak antar item pada layar kecil */
+    padding: 10px; /* Sesuaikan padding pada kontainer pada layar kecil */
+    margin-top: 80px; /* Sesuaikan margin atas pada layar kecil */
+    display: inline-block;
+  }
+
+  .item {
+    padding: 10px; /* Sesuaikan padding pada item pada layar kecil */
+  }
+
+  .item h3 {
+    font-size: 16px; /* Ubah ukuran font judul pada layar kecil */
+    margin-top: 20px; /* Sesuaikan margin atas pada judul pada layar kecil */
+  }
+
+  .item p {
+    font-size: 14px; /* Ubah ukuran font paragraf pada layar kecil */
+    margin-top: 8px; /* Sesuaikan margin atas pada paragraf pada layar kecil */
+  }
+
+  .item a {
+    height: 30px; /* Sesuaikan tinggi tombol pada layar kecil */
+    width: 120px; /* Sesuaikan lebar tombol pada layar kecil */
+    margin-top: 8px; /* Sesuaikan margin atas pada tombol pada layar kecil */
+    font-size: 12px; /* Ubah ukuran font tombol pada layar kecil */
+    text-align: center;
+  }
+
+  .cart-overlay {
+    position: fixed;
+    top: 20px;
+    width: 300px;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 998;
+    margin-top: 60px;
+  }
+
+  .containerJudul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 50px;
+  }
+  
+  .containerJudul h1 {
+    text-align: center;
+    padding: 10px;
+    font-family: "Libre Baskerville", serif;
+  }
+  
+  .containerJudul p {
+    text-align: center;
+    width: 10%;
+    letter-spacing: -10px;
+  }
+  
+  .cart {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 400px;
+    font-family: "Libre Baskerville", serif;
+    text-align: center;
+  }
+  
+  .close-cart {
+    float: right;
+    cursor: pointer;
+  }
+  
+  .cart-items {
+    margin-top: 20px;
+  }
+  
+  .cart-item {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+  }
+  
+  .cart-total {
+    margin-top: 20px;
+  }
+  
+  .clear-cart {
+    margin-top: 20px;
+    padding: 8px 16px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: "Roboto Mono", monospace;
+    margin-bottom: 20px;
+  }
+  
+  .buy {
+    margin-top: 20px;
+    padding: 8px 16px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: "Roboto Mono", monospace;
+  }
+  
+  
 }
 
