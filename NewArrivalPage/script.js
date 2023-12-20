@@ -1,22 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const cartBtn = document.querySelector(".cart-btn");
   const cartOverlay = document.querySelector(".cart-overlay");
   const closeCartBtn = document.querySelector(".close-cart");
   const clearCartBtn = document.querySelector(".clear-cart");
   const cartTotal = document.querySelector(".cart-total");
   const cartItems = document.querySelector(".cart-items");
   const addToCartButtons = document.querySelectorAll(".add-to-cart");
-
-  // Event listeners
-  // cartBtn.addEventListener("click", function () {
-  //   cartOverlay.style.display = "block";
-  // });
-
-  addToCartButtons.forEach((button) => {
-    button.addEventListener("click", function () {
-      cartOverlay.style.display = "block";
-    });
-  });
 
   closeCartBtn.addEventListener("click", function () {
     cartOverlay.style.display = "none";
@@ -34,11 +22,28 @@ document.addEventListener("DOMContentLoaded", function () {
     button.addEventListener("click", function (event) {
       const itemName = event.target.getAttribute("data-name");
       const itemPrice = event.target.getAttribute("data-price");
+      const itemId = event.target.getAttribute("data-id");
 
       const newItem = {
+        id: itemId,
         name: itemName,
         price: parseInt(itemPrice.replace(/\D/g, "")),
       };
+
+      // Send an AJAX request to your PHP script to handle the addition to the cart
+      fetch("/Watchdrit-Project-Website/purchase.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newItem),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data); // You can handle the response from the server here
+          // You may want to update the cart UI based on the server response
+          // For example, you can display a success message or handle errors
+        });
 
       addItemToCart(newItem);
     });

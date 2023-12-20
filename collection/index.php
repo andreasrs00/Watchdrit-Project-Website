@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="/Watchdrit-Project-Website/collection/style.css"
+    />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <nav>
+      <div class="navbar">
+        <div class="nav-container">
+          <input class="checkbox" type="checkbox" name="" id="" />
+          <div class="hamburger-lines">
+            <span class="line line1"></span>
+            <span class="line line2"></span>
+            <span class="line line3"></span>
+          </div>
+          <div class="logo"></div>
+          <div class="menu-items">
+            <li><a href="#">Home</a></li>
+            <li>
+              <a href="/Watchdrit-Project-Website/LoginPage/index.php">Login</a>
+            </li>
+            <li>
+              <a href="/Watchdrit-Project-Website/NewArrivalPage/index.html"
+                >New Arrivals</a
+              >
+            </li>
+            <li><a href="#">Collection</a></li>
+            <li><a href="#">Testimoni</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="containerIsi">
+      <div class="containerJudul">
+        <hr width="5%" size="5px" color="black" />
+        <h1>Sport's Collection</h1>
+        <hr width="5%" size="5px" color="black" />
+      </div>
+    </div>
+
+    <div class="catalog">
+    <?php
+      include '../koneksi.php';
+
+      $query = "SELECT * FROM produk WHERE arrival IN (3,1)";
+      $execQuery = pg_query($connection, $query);
+
+      $i = 1;
+
+      while ($data = pg_fetch_assoc($execQuery) AND $i!=9) {
+        $idProduk = $data['id_produk'];
+        $namaProduk = $data['nama_produk'];
+        $hargaProduk = $data['harga_produk'];
+        ?>
+        <div class="item">
+          <img src="sport<?=$i?>.png" alt="Jam <?=$i?>">
+          <h3><?=$namaProduk?></h3>
+          <p>Rp<?=$hargaProduk?></p>
+          <a
+          href="#"
+          data-name=<?=$namaProduk?>
+          data-price=<?=$hargaProduk?>
+          data-id=<?=$idProduk?>
+          class="add-to-cart btn btn-primary">ADD TO CART</a>
+          <div class="overlay">
+            <img src="man<?=$i?>.png" alt="jam <?=$i?> hover">
+          </div>
+        </div>
+        <?php
+        $i++;
+      }
+    ?>
+    </div>
+
+    <div class="containerIsi">
+      <div class="containerJudul">
+        <hr width="5%" size="5px" color="black" />
+        <h1>Men's Collection</h1>
+        <hr width="5%" size="5px" color="black" />
+      </div>
+    </div>
+
+    <div class="catalog">
+    <?php
+      include '../koneksi.php';
+
+      $query = "SELECT * FROM produk WHERE kategori = 1 AND arrival = 0";
+      $execQuery = pg_query($connection, $query);
+
+      $i = 1;
+
+      while ($data = pg_fetch_assoc($execQuery)) {
+        $idProduk = $data['id_produk'];
+        $namaProduk = $data['nama_produk'];
+        $hargaProduk = $data['harga_produk'];
+        ?>
+        <div class="item">
+          <img src="mjam<?=$i?>.png" alt="Jam <?=$i?>">
+          <h3><?=$namaProduk?></h3>
+          <p>Rp<?=$hargaProduk?></p>
+          <a
+          href="#"
+          data-name=<?=$namaProduk?>
+          data-price=<?=$hargaProduk?>
+          data-id=<?=$idProduk?>
+          class="add-to-cart btn btn-primary">ADD TO CART</a>
+          <div class="overlay">
+            <img src="hovermjam<?=$i?>.png" alt="jam <?=$i?> hover">
+          </div>
+        </div>
+        <?php
+        $i++;
+      }
+    ?>
+    </div>
+
+     <div class="containerIsi">
+      <div class="containerJudul">
+        <hr width="5%" size="5px" color="black" />
+        <h1>Women's Collection</h1>
+        <hr width="5%" size="5px" color="black" />
+      </div>
+    </div>
+
+    <div class="catalog">
+    <?php
+      include '../koneksi.php';
+
+      $query = "SELECT * FROM produk WHERE (kategori = 2 AND arrival IN (0, 1)) OR id_produk BETWEEN 9 AND 12";
+      $execQuery = pg_query($connection, $query);
+
+      $i = 1;
+
+      while ($data = pg_fetch_assoc($execQuery)) {
+        $idProduk = $data['id_produk'];
+        $namaProduk = $data['nama_produk'];
+        $hargaProduk = $data['harga_produk'];
+        ?>
+        <div class="item">
+          <img src="wjam<?=$i?>.png" alt="Jam <?=$i?>">
+          <h3><?=$namaProduk?></h3>
+          <p>Rp<?=$hargaProduk?></p>
+          <a
+          href="#"
+          data-name=<?=$namaProduk?>
+          data-price=<?=$hargaProduk?>
+          data-id=<?=$idProduk?>
+          class="add-to-cart btn btn-primary">ADD TO CART</a>
+          <div class="overlay">
+            <img src="hoverwjam<?=$i?>.png" alt="jam <?=$i?> hover">
+          </div>
+        </div>
+        <?php
+        $i++;
+      }
+    ?>
+    </div>
+      
+    <div class="containerIsi">
+      <div class="containerJudul">
+        <hr width="5%" size="5px" color="black" />
+        <h1>Smartwatches Collection</h1>
+        <hr width="5%" size="5px" color="black" />
+      </div>
+    </div>
+
+    <div class="catalog">
+    <?php
+      include '../koneksi.php';
+
+      $query = "SELECT * FROM produk WHERE kategori IN(4) ";
+      $execQuery = pg_query($connection, $query);
+
+      $i = 1;
+
+      while ($data = pg_fetch_assoc($execQuery)) {
+        $idProduk = $data['id_produk'];
+        $namaProduk = $data['nama_produk'];
+        $hargaProduk = $data['harga_produk'];
+        ?>
+        <div class="item">
+          <img src="sjam<?=$i?>.png" alt="Jam <?=$i?>">
+          <h3><?=$namaProduk?></h3>
+          <p>Rp<?=$hargaProduk?></p>
+          <a
+          href="#"
+          data-name=<?=$namaProduk?>
+          data-price=<?=$hargaProduk?>
+          data-id=<?=$idProduk?>
+          class="add-to-cart btn btn-primary">ADD TO CART</a>
+          <div class="overlay">
+            <img src="hoversjam<?=$i?>.png" alt="jam <?=$i?> hover">
+          </div>
+        </div>
+        <?php
+        $i++;
+      }
+    ?>
+    </div>
+      
+    <div class="containerIsi">
+      <div class="containerJudul">
+        <hr width="5%" size="5px" color="black" />
+        <h1>Kid's watches Collection</h1>
+        <hr width="5%" size="5px" color="black" />
+      </div>
+    </div>
+
+    <div class="catalog">
+    <?php
+      include '../koneksi.php';
+
+      $query = "SELECT * FROM produk WHERE kategori IN(5)";
+      $execQuery = pg_query($connection, $query);
+
+      $i = 1;
+
+      while ($data = pg_fetch_assoc($execQuery)) {
+        $idProduk = $data['id_produk'];
+        $namaProduk = $data['nama_produk'];
+        $hargaProduk = $data['harga_produk'];
+        ?>
+        <div class="item">
+          <img src="kjam<?=$i?>.png" alt="Jam <?=$i?>">
+          <h3><?=$namaProduk?></h3>
+          <p>Rp<?=$hargaProduk?></p>
+          <a
+          href="#"
+          data-name=<?=$namaProduk?>
+          data-price=<?=$hargaProduk?>
+          data-id=<?=$idProduk?>
+          class="add-to-cart btn btn-primary">ADD TO CART</a>
+          <div class="overlay">
+            <img src="hoverkjam<?=$i?>.png" alt="jam <?=$i?> hover">
+          </div>
+        </div>
+        <?php
+        $i++;
+      }
+    ?>
+    </div>
+      
+    <div class="cart-overlay">
+      <div class="cart">
+        <span class="close-cart">&times;</span>
+        <h2>Your Cart</h2>
+        <div class="cart-items">
+          <!-- Cart items will be displayed here -->
+          <h3 class="cart-total"></h3>
+          <button class="clear-cart">Clear Cart</button>
+          <button class="buy">Buy</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/Watchdrit-Project-Website/collection/script.js"></script>
+  </body>
+</html>

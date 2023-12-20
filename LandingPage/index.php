@@ -38,7 +38,7 @@
             </li>
 
             <li>
-              <a href="/Watchdrit-Project-Website/NewArrivalPage/index.html"
+              <a href="/Watchdrit-Project-Website/NewArrivalPage/index.php"
                 >New Arrivals</a
               >
             </li>

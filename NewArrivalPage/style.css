@@ -49,7 +49,7 @@ nav {
 }
 
 .navbar .nav-container a:hover {
-  color:grey; /* Atur warna putih yang lebih terang saat di hover */
+  color: grey; /* Atur warna putih yang lebih terang saat di hover */
   font-weight: bold; /* Membuat teks menjadi lebih tebal saat di hover */
 }
 
@@ -166,7 +166,10 @@ nav {
 
 .catalog {
   display: grid;
-  grid-template-columns: repeat(4, 1fr) !important; /* Membagi ke dalam 4 kolom */
+  grid-template-columns: repeat(
+    4,
+    1fr
+  ) !important; /* Membagi ke dalam 4 kolom */
   gap: 20px; /* Jarak antar item */
   padding: 20px;
   /* margin-top: 120px; */
@@ -235,7 +238,6 @@ nav {
   ); /* Mempertahankan ukuran gambar tambahan sesuai gambar utama */
 }
 
-
 .item a {
   background-color: black;
   color: white;
@@ -250,7 +252,7 @@ nav {
   display: inline-block;
 }
 
-.item a:hover{
+.item a:hover {
   background-color: white !important;
   color: black !important;
   height: 40px;
@@ -262,8 +264,6 @@ nav {
   border-color: black !important;
   outline: none !important;
 }
-
-
 
 .containerJudul {
   display: flex;
@@ -298,7 +298,7 @@ nav {
   display: none;
   justify-content: center;
   align-items: center;
-  z-index: 998;
+  z-index: 10001;
   margin-top: 60px;
 }
 
@@ -309,6 +309,8 @@ nav {
   max-width: 400px;
   font-family: "Libre Baskerville", serif;
   text-align: center;
+  z-index: 10000;
+  position: fixed;
 }
 
 .close-cart {
@@ -351,11 +353,13 @@ nav {
   font-family: "Roboto Mono", monospace;
 }
 
-
 /* Aturan CSS untuk layar kecil (smartphone) */
 @media only screen and (max-width: 600px) {
   .catalog {
-    grid-template-columns: repeat(2, 1fr); /* Ubah menjadi 2 kolom pada layar kecil */
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Ubah menjadi 2 kolom pada layar kecil */
     gap: 10px; /* Sesuaikan jarak antar item pada layar kecil */
     padding: 10px; /* Sesuaikan padding pada kontainer pada layar kecil */
     margin-top: 80px; /* Sesuaikan margin atas pada layar kecil */
@@ -406,19 +410,19 @@ nav {
     gap: 10px;
     margin-top: 50px;
   }
-  
+
   .containerJudul h1 {
     text-align: center;
     padding: 10px;
     font-family: "Libre Baskerville", serif;
   }
-  
+
   .containerJudul p {
     text-align: center;
     width: 10%;
     letter-spacing: -10px;
   }
-  
+
   .cart {
     background: white;
     padding: 20px;
@@ -427,26 +431,26 @@ nav {
     font-family: "Libre Baskerville", serif;
     text-align: center;
   }
-  
+
   .close-cart {
     float: right;
     cursor: pointer;
   }
-  
+
   .cart-items {
     margin-top: 20px;
   }
-  
+
   .cart-item {
     margin-bottom: 10px;
     border-bottom: 1px solid #ccc;
     padding-bottom: 5px;
   }
-  
+
   .cart-total {
     margin-top: 20px;
   }
-  
+
   .clear-cart {
     margin-top: 20px;
     padding: 8px 16px;
@@ -457,7 +461,7 @@ nav {
     font-family: "Roboto Mono", monospace;
     margin-bottom: 20px;
   }
-  
+
   .buy {
     margin-top: 20px;
     padding: 8px 16px;
@@ -467,7 +471,4 @@ nav {
     cursor: pointer;
     font-family: "Roboto Mono", monospace;
   }
-  
-  
 }
-
