@@ -258,8 +258,10 @@ button.myButton {
   color: white; /* Warna teks */
   border: 2px solid transparent;
   cursor: pointer;
-  margin-left: 710px;
-  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px auto 0;
   font-family: 'Roboto Mono', monospace;
 }
 

@@ -30,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($row && password_verify($password, $row['password'])) {
                 // Authentication successful
                 $_SESSION["email"] = $email;
+                $_SESSION['id_customer'] = $row['id'];
                 header("Location: /Watchdrit-Project-Website/LandingPage/index.php");
                 exit();
             } else {

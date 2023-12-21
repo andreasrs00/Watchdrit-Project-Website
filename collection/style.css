@@ -6,20 +6,18 @@
 }
 
 body {
-  font-family: "Libre Baskerville", serif;
+  font-family: 'Libre Baskerville', serif;
 }
 
-nav {
-  /* position: sticky; */
-  top: 0;
+nav{
+    /* position: sticky; */
+    top: 0;
 }
 
 .navbar {
   width: 100%;
   box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
   z-index: 1000;
-  position: fixed;
-  background-color: #fff;
 }
 
 .nav-container {
@@ -33,7 +31,6 @@ nav {
 
 .navbar .menu-items {
   display: flex;
-  padding-top: 60px;
 }
 
 .navbar .nav-container li {
@@ -43,13 +40,14 @@ nav {
 .navbar .nav-container a {
   text-decoration: none;
   color: black;
-  font-family: "Libre Baskerville", serif;
+  font-family: 'Libre Baskerville', serif;
   font-weight: bold;
   font-size: 1.2rem;
+  
 }
 
 .navbar .nav-container a:hover {
-  color:grey; /* Atur warna putih yang lebih terang saat di hover */
+  color: #f8f9fa; /* Atur warna putih yang lebih terang saat di hover */
   font-weight: bold; /* Membuat teks menjadi lebih tebal saat di hover */
 }
 
@@ -61,7 +59,7 @@ nav {
   display: block;
   position: relative;
   height: 60px;
-  /* border-bottom: 0.2px black; */
+  border-bottom: 0.2px black;
 }
 
 .nav-container .checkbox {
@@ -123,7 +121,7 @@ nav {
 }
 
 .navbar .menu-items li {
-  text-align: left;
+  text-align: left ;
   margin-bottom: 1.2rem;
   /* border-bottom: 0.01px solid white; */
   width: 95%;
@@ -144,6 +142,7 @@ nav {
   background-repeat: no-repeat;
 }
 
+
 .nav-container input[type="checkbox"]:checked ~ .menu-items {
   transform: translateX(0);
 }
@@ -163,6 +162,7 @@ nav {
 .nav-container input[type="checkbox"]:checked ~ .logo {
   display: none;
 }
+
 
 .catalog {
   display: grid;
@@ -233,7 +233,7 @@ nav {
 }
 
 
-.item a {
+/* .item a {
   background-color: black;
   color: white;
   height: 40px;
@@ -256,7 +256,7 @@ nav {
   text-align: center;
   z-index: 100000;
   border: 2px solid black;
-}
+} */
 
 .containerJudul {
   display: flex;
@@ -366,3 +366,65 @@ nav {
   font-family: "Roboto Mono", monospace;
 }
 
+.add-to-cart-button {
+  background-color: black;
+  color: white;
+  font-family: "Roboto Mono", monospace;
+  width: 120px;
+  height: 40px;
+  border: 2px solid transparent;
+  display: inline-block;
+  text-align: center;
+  line-height: 40px; /* Center the text vertically */
+  cursor: pointer;
+}
+
+.btn-open-cart {
+  background-color: black;
+  color: white;
+  font-size: xx-large;
+  font-family: "Roboto Mono", monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 250px;
+  height: auto;
+}
+
+.modal-title {
+  color: black; /* Warna teks */
+  font-size: 2.25rem; /* Ukuran font */
+  font-family: "Libre Baskerville", serif;
+  font-weight: bolder;
+}
+
+
+.modal-footer button{
+  background-color: black !important;
+  color: white !important;
+  font-family: "Roboto Mono", monospace;
+}
+
+
+/* CSS dalam berkas eksternal (misalnya, style.css) */
+.cart-items {
+  /* Atur tata letak dan jarak antar elemen */
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Sesuaikan jarak antar elemen sesuai kebutuhan */
+}
+
+.cart-item {
+  /* Atur tata letak dan gaya elemen individu */
+  font-size: 20px; /* Sesuaikan ukuran font sesuai kebutuhan */
+  font-family: "Libre Baskerville", serif;
+  color: black;
+}
+
+.total-harga {
+  font-size: 18px; /* Sesuaikan ukuran font sesuai kebutuhan */
+  font-weight: bold; /* Atur ketebalan font */
+  margin-top: 10px; /* Sesuaikan jarak antara cart items dan total harga */
+  font-family: "Libre Baskerville", serif;
+}

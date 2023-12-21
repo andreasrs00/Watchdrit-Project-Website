@@ -3,10 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="/Watchdrit-Project-Website/collection/style.css"
-    />
+    <link rel="stylesheet" href="/Watchdrit-Project-Website/collection/style.css"/>
+
     <link
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       rel="stylesheet"
@@ -15,6 +13,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>Document</title>
+  <?php
+  include '../koneksi.php';
+  ?>
   </head>
   <body>
     <nav>
@@ -28,17 +29,16 @@
           </div>
           <div class="logo"></div>
           <div class="menu-items">
-            <li><a href="#">Home</a></li>
+            <li><a href="/Watchdrit-Project-Website/LandingPage/index.php">Home</a></li>
             <li>
               <a href="/Watchdrit-Project-Website/LoginPage/index.php">Login</a>
             </li>
             <li>
-              <a href="/Watchdrit-Project-Website/NewArrivalPage/index.html"
+              <a href="/Watchdrit-Project-Website/NewArrivalPage/index.php"
                 >New Arrivals</a
               >
             </li>
             <li><a href="#">Collection</a></li>
-            <li><a href="#">Testimoni</a></li>
             <li><a href="#">Contact Us</a></li>
           </div>
         </div>
@@ -52,11 +52,9 @@
         <hr width="5%" size="5px" color="black" />
       </div>
     </div>
-
     <div class="catalog">
     <?php
-      include '../koneksi.php';
-
+      session_start();
       $query = "SELECT * FROM produk WHERE arrival IN (3,1)";
       $execQuery = pg_query($connection, $query);
 
@@ -71,12 +69,15 @@
           <img src="sport<?=$i?>.png" alt="Jam <?=$i?>">
           <h3><?=$namaProduk?></h3>
           <p>Rp<?=$hargaProduk?></p>
-          <a
-          href="#"
-          data-name=<?=$namaProduk?>
-          data-price=<?=$hargaProduk?>
-          data-id=<?=$idProduk?>
-          class="add-to-cart btn btn-primary">ADD TO CART</a>
+          <form action="./proses.php" method="POST">
+            <input type="hidden" name="idProduk" value="<?=$idProduk?>">
+            <input type="hidden" name="namaProduk" value="<?=$namaProduk?>">
+            <input type="hidden" name="hargaProduk" value="<?=$hargaProduk?>">
+            <button type="submit" name="tambahPembelian" data-id="<?=$idProduk?>"
+            data-name="<?=$namaProduk?>"
+            data-price="<?=$hargaProduk?>" class="add-to-cart-button">
+            ADD TO CART</button>
+          </form>
           <div class="overlay">
             <img src="man<?=$i?>.png" alt="jam <?=$i?> hover">
           </div>
@@ -97,7 +98,7 @@
 
     <div class="catalog">
     <?php
-      include '../koneksi.php';
+      
 
       $query = "SELECT * FROM produk WHERE kategori = 1 AND arrival = 0";
       $execQuery = pg_query($connection, $query);
@@ -113,12 +114,15 @@
           <img src="mjam<?=$i?>.png" alt="Jam <?=$i?>">
           <h3><?=$namaProduk?></h3>
           <p>Rp<?=$hargaProduk?></p>
-          <a
-          href="#"
-          data-name=<?=$namaProduk?>
-          data-price=<?=$hargaProduk?>
-          data-id=<?=$idProduk?>
-          class="add-to-cart btn btn-primary">ADD TO CART</a>
+          <form action="../collection/proses.php" method="POST">
+            <input type="hidden" name="idProduk" value="<?=$idProduk?>">
+            <input type="hidden" name="namaProduk" value="<?=$namaProduk?>">
+            <input type="hidden" name="hargaProduk" value="<?=$hargaProduk?>">
+            <button type="submit" name="tambahPembelian" data-id="<?=$idProduk?>"
+            data-name="<?=$namaProduk?>"
+            data-price="<?=$hargaProduk?>" class="add-to-cart-button">
+            ADD TO CART</button>
+          </form>
           <div class="overlay">
             <img src="hovermjam<?=$i?>.png" alt="jam <?=$i?> hover">
           </div>
@@ -139,7 +143,7 @@
 
     <div class="catalog">
     <?php
-      include '../koneksi.php';
+      
 
       $query = "SELECT * FROM produk WHERE (kategori = 2 AND arrival IN (0, 1)) OR id_produk BETWEEN 9 AND 12";
       $execQuery = pg_query($connection, $query);
@@ -155,12 +159,15 @@
           <img src="wjam<?=$i?>.png" alt="Jam <?=$i?>">
           <h3><?=$namaProduk?></h3>
           <p>Rp<?=$hargaProduk?></p>
-          <a
-          href="#"
-          data-name=<?=$namaProduk?>
-          data-price=<?=$hargaProduk?>
-          data-id=<?=$idProduk?>
-          class="add-to-cart btn btn-primary">ADD TO CART</a>
+          <form action="../collection/proses.php" method="POST">
+            <input type="hidden" name="idProduk" value="<?=$idProduk?>">
+            <input type="hidden" name="namaProduk" value="<?=$namaProduk?>">
+            <input type="hidden" name="hargaProduk" value="<?=$hargaProduk?>">
+            <button type="submit" name="tambahPembelian" data-id="<?=$idProduk?>"
+            data-name="<?=$namaProduk?>"
+            data-price="<?=$hargaProduk?>" class="add-to-cart-button">
+            ADD TO CART</button>
+          </form>
           <div class="overlay">
             <img src="hoverwjam<?=$i?>.png" alt="jam <?=$i?> hover">
           </div>
@@ -181,7 +188,7 @@
 
     <div class="catalog">
     <?php
-      include '../koneksi.php';
+      
 
       $query = "SELECT * FROM produk WHERE kategori IN(4) ";
       $execQuery = pg_query($connection, $query);
@@ -197,12 +204,15 @@
           <img src="sjam<?=$i?>.png" alt="Jam <?=$i?>">
           <h3><?=$namaProduk?></h3>
           <p>Rp<?=$hargaProduk?></p>
-          <a
-          href="#"
-          data-name=<?=$namaProduk?>
-          data-price=<?=$hargaProduk?>
-          data-id=<?=$idProduk?>
-          class="add-to-cart btn btn-primary">ADD TO CART</a>
+          <form action="../collection/proses.php" method="POST">
+            <input type="hidden" name="idProduk" value="<?=$idProduk?>">
+            <input type="hidden" name="namaProduk" value="<?=$namaProduk?>">
+            <input type="hidden" name="hargaProduk" value="<?=$hargaProduk?>">
+            <button type="submit" name="tambahPembelian" data-id="<?=$idProduk?>"
+            data-name="<?=$namaProduk?>"
+            data-price="<?=$hargaProduk?>" class="add-to-cart-button">
+            ADD TO CART</button>
+          </form>
           <div class="overlay">
             <img src="hoversjam<?=$i?>.png" alt="jam <?=$i?> hover">
           </div>
@@ -223,7 +233,7 @@
 
     <div class="catalog">
     <?php
-      include '../koneksi.php';
+      
 
       $query = "SELECT * FROM produk WHERE kategori IN(5)";
       $execQuery = pg_query($connection, $query);
@@ -239,12 +249,15 @@
           <img src="kjam<?=$i?>.png" alt="Jam <?=$i?>">
           <h3><?=$namaProduk?></h3>
           <p>Rp<?=$hargaProduk?></p>
-          <a
-          href="#"
-          data-name=<?=$namaProduk?>
-          data-price=<?=$hargaProduk?>
-          data-id=<?=$idProduk?>
-          class="add-to-cart btn btn-primary">ADD TO CART</a>
+          <form action="../collection/proses.php" method="POST">
+            <input type="hidden" name="idProduk" value="<?=$idProduk?>">
+            <input type="hidden" name="namaProduk" value="<?=$namaProduk?>">
+            <input type="hidden" name="hargaProduk" value="<?=$hargaProduk?>">
+            <button type="submit" name="tambahPembelian" data-id="<?=$idProduk?>"
+            data-name="<?=$namaProduk?>"
+            data-price="<?=$hargaProduk?>" class="add-to-cart-button">
+            ADD TO CART</button>
+          </form>
           <div class="overlay">
             <img src="hoverkjam<?=$i?>.png" alt="jam <?=$i?> hover">
           </div>
@@ -255,18 +268,73 @@
     ?>
     </div>
       
-    <div class="cart-overlay">
-      <div class="cart">
-        <span class="close-cart">&times;</span>
-        <h2>Your Cart</h2>
-        <div class="cart-items">
-          <!-- Cart items will be displayed here -->
-          <h3 class="cart-total"></h3>
-          <button class="clear-cart">Clear Cart</button>
-          <button class="buy">Buy</button>
+<?php
+  if(isset($_SESSION['id_cartcollection'])){
+    ?>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn-open-cart" data-toggle="modal" data-target="#staticBackdrop">
+      OPEN CART
+    </button>
+    <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Your Cart</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="cart-items">
+                      <?php
+                      $totalHarga = 0;
+                        $idCart = $_SESSION['id_cartcollection'];  
+                        echo $idCart;
+                        $query = "SELECT pb.id_produk, pr.nama_produk, pr.harga_produk
+                                  FROM pembelian pb
+                                  JOIN produk pr ON pb.id_produk = pr.id_produk
+                                  WHERE pb.id_cart = $1";
+
+                        $execQuery = pg_query_params($connection,$query,array($idCart));
+
+                        while ($data = pg_fetch_assoc($execQuery)) {
+                            $id_produk = $data['id_produk'];
+                            $nama_produk = $data['nama_produk'];
+                            $harga_produk = $data['harga_produk'];
+
+                            ?>
+                            <div class="cart-item">
+                                <span>ID Produk: <?php echo $id_produk; ?></span> <br>
+                                <span>Nama Produk: <?php echo $nama_produk; ?></span> <br>
+                                <span>Harga Produk: <?php echo $harga_produk; ?></span> <br>
+                            </div>
+                          <?php
+                            $totalHarga += $harga_produk;
+                        }
+
+                        echo '</div>'; // Menutup tag div cart-items
+                        echo '<div class="total-harga">Total Harga : ' . $totalHarga . '</div>';
+                        ?>
+                  </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <form action="../collection/proses.php" method="post">
+                <button type="submit" name="clearPembelian" class="btn btn-primary">Clear</button>
+              </form>
+              <form action="../collection/proses.php" method="post">
+                <input type="hidden" name="totalHarga" value="<?=$totalHarga?>">
+                <button type="submit" name="submitPembelian" class="btn btn-primary">Buy</button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+
+    <?php
+  }
+?>
 
     <script src="/Watchdrit-Project-Website/collection/script.js"></script>
   </body>

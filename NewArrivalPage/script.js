@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   clearCartBtn.addEventListener("click", function () {
-    // Ask for confirmation before clearing the cart
     const isConfirmed = confirm("Are you sure you want to clear the cart?");
     if (isConfirmed) {
       clearCart();
@@ -30,8 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
         price: parseInt(itemPrice.replace(/\D/g, "")),
       };
 
-      // Send an AJAX request to your PHP script to handle the addition to the cart
-      fetch("/Watchdrit-Project-Website/purchase.php", {
+      fetch("/Watchdrit-Project-Website/NewArrivalPage/proses.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -72,13 +70,58 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function clearCart() {
-    // Remove all child elements representing cart items
     const cartItemElements = document.querySelectorAll(".cart-item");
     cartItemElements.forEach((cartItem) => {
       cartItems.removeChild(cartItem);
     });
 
-    // Reset the total to zero
     updateCartTotal();
+  }
+
+  // Additional code for submitting the form
+  const purchaseForm = document.getElementById("purchase-form");
+  purchaseForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    // Serialize the cart data
+    const cartData = JSON.stringify(getCartData());
+
+    // Add a hidden input field to the form
+    const hiddenInput = document.createElement("input");
+    hiddenInput.type = "hidden";
+    hiddenInput.name = "cart";
+    hiddenInput.value = cartData;
+    purchaseForm.appendChild(hiddenInput);
+
+    // Submit the form
+    purchaseForm.submit();
+  });
+
+  function getCartData() {
+    const cartItemPrices = document.querySelectorAll(".cart-item");
+    const cartData = [];
+
+    cartItemPrices.forEach((item) => {
+      const itemName = item.textContent.split(" - ")[0];
+      const itemPrice = parseInt(item.textContent.match(/\d+/)[0]);
+      const itemId = getItemIdByName(itemName);
+
+      cartData.push({
+        id: itemId,
+        name: itemName,
+        price: itemPrice,
+      });
+    });
+
+    return cartData;
+  }
+
+  function getItemIdByName(itemName) {
+    // Implement logic to get the item ID based on the name
+    // This depends on how your items are identified in the database
+    // You may need to fetch this information from the server or have a mapping in the client
+    // For demonstration purposes, assume there's a function getItemIdByName(itemName)
+    // that returns the item ID based on the item name.
+    // Example: return getItemIdByName(itemName);
   }
 });

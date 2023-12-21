@@ -16,6 +16,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <title>Document</title>
+    <?php echo $_SESSION['id_customer']; ?>
   </head>
   <body>
     <nav>
@@ -42,7 +43,7 @@
                 >New Arrivals</a
               >
             </li>
-            <li><a href="/Watchdrit-Project-Website/collection/index.html">Collection</a></li>
+            <li><a href="/Watchdrit-Project-Website/collection/index.php">Collection</a></li>
             <li><a href="#">Testimoni</a></li>
             <li><a href="#">Contact Us</a></li>
             <li
@@ -159,6 +160,7 @@
         <img src="na5.png" alt="" />
       </div>
     </div>
+    <button class="myButton">See More</button>
 
     <div class="containerIsi">
       <div class="containerJudul">
@@ -176,7 +178,6 @@
         <img src="limited.png" alt="" />
         <h1>PRICE</h1>
         <p>RP 1.889.000,00</p>
-        <button class="butl">View Product</button>
       </div>
     </div>
 

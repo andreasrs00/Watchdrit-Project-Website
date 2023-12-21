@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/Watchdrit-Project-Website/collection/style.css" />
+    <link rel="stylesheet" href="/Watchdrit-Project-Website/NewArrivalpage/style.css" />
     <link
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       rel="stylesheet"
@@ -25,17 +25,16 @@
           </div>
           <div class="logo"></div>
           <div class="menu-items">
-            <li><a href="#">Home</a></li>
+            <li><a href="/Watchdrit-Project-Website/LandingPage/index.php">Home</a></li>
             <li>
               <a href="/Watchdrit-Project-Website/LoginPage/index.php">Login</a>
             </li>
             <li>
-              <a href="/Watchdrit-Project-Website/NewArrivalPage/index.html"
+              <a href="/Watchdrit-Project-Website/NewArrivalPage/index.php"
                 >New Arrivals</a
               >
             </li>
-            <li><a href="#">Collection</a></li>
-            <li><a href="#">Testimoni</a></li>
+            <li><a href="/Watchdrit-Project-Website/collection/index.php">Collection</a></li>
             <li><a href="#">Contact Us</a></li>
           </div>
         </div>
@@ -44,6 +43,7 @@
     
     <div class="catalog">
     <?php
+    session_start();
       include '../koneksi.php';
 
       $query = "SELECT * FROM produk WHERE arrival IN (0,2)";
@@ -60,12 +60,16 @@
           <img src="jam<?=$i?>.png" alt="Jam <?=$i?>">
           <h3><?=$namaProduk?></h3>
           <p>Rp<?=$hargaProduk?></p>
-          <a
-          href="#"
-          data-name=<?=$namaProduk?>
-          data-price=<?=$hargaProduk?>
-          data-id=<?=$idProduk?>
-          class="add-to-cart btn btn-primary">ADD TO CART</a>
+
+          <form action="../NewArrivalPage/proses.php" method="POST">
+            <input type="hidden" name="idProduk" value="<?=$idProduk?>">
+            <input type="hidden" name="namaProduk" value="<?=$namaProduk?>">
+            <input type="hidden" name="hargaProduk" value="<?=$hargaProduk?>">
+            <button type="submit" name="tambahPembelian" data-id="<?=$idProduk?>"
+            data-name="<?=$namaProduk?>"
+            data-price="<?=$hargaProduk?>" class="add-to-cart-button">
+            ADD TO CART</button>
+          </form>
           <div class="overlay">
             <img src="hoverjam<?=$i?>.png" alt="jam <?=$i?> hover">
           </div>
@@ -76,22 +80,74 @@
     ?>
     </div>
 
-    <div class="cart-overlay">
-      <div class="cart">
-        <span class="close-cart">&times;</span>
-        <h2>Your Cart</h2>
-        <form id="purchase-form" action="/Watchdrit-Project-Website/NewArrivalPage/purchase.php" method="POST">
-            <div class="cart-items">
-                <h3 class="cart-total"></h3>
-                <button type="button" class="clear-cart">Clear Cart</button>
-                <button type="submit" class="buy" id="buy-button">Buy</button>
+<?php
+  if(isset($_SESSION['id_cart'])){
+    ?>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn-open-cart" data-toggle="modal" data-target="#staticBackdrop">
+      OPEN CART
+    </button>
+    <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Your Cart</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-        </form>
-      </div>
-    </div>
-    
+            <div class="modal-body">
+              <div class="cart-items">
+                      <?php
+                      $totalHarga = 0;
+                        $idCart = $_SESSION['id_cart'];  
+                        echo $idCart;
+                        $query = "SELECT pb.id_produk, pr.nama_produk, pr.harga_produk
+                                  FROM pembelian pb
+                                  JOIN produk pr ON pb.id_produk = pr.id_produk
+                                  WHERE pb.id_cart = $1";
 
-      <script src="/Watchdrit-Project-Website/collection/script.js"></script>
+                        $execQuery = pg_query_params($connection, $query, array($idCart));
+
+                        while ($data = pg_fetch_assoc($execQuery)) {
+                            $id_produk = $data['id_produk'];
+                            $nama_produk = $data['nama_produk'];
+                            $harga_produk = $data['harga_produk'];
+                          ?>
+                            <div class="cart-item">
+                                <span>ID Produk: <?php echo $id_produk; ?></span> <br>
+                                <span>Nama Produk: <?php echo $nama_produk; ?></span> <br>
+                                <span>Harga Produk: <?php echo $harga_produk; ?></span> <br>
+                            </div>
+                          <?php
+                            $totalHarga += $harga_produk;
+                        }
+
+                        echo '</div>'; // Menutup tag div cart-items
+                        echo '<div class="total-harga">Total Harga : ' . $totalHarga . '</div>';
+                        ?>
+                  
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <form action="../NewArrivalPage/proses.php" method="post">
+                <button type="submit" name="clearPembelian" class="btn btn-primary">Clear</button>
+              </form>
+              <form action="../NewArrivalPage/proses.php" method="post">
+                <input type="hidden" name="totalHarga" value="<?=$totalHarga?>">
+                <button type="submit" name="submitPembelian" class="btn btn-primary">Buy</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <?php
+  }
+?>
+      <script src="/Watchdrit-Project-Website/NewArrivalPage/script.js">
+      </script>
   </body>
 </html>
 
