@@ -19,7 +19,6 @@ Akses keranjang belanja Anda untuk melihat daftar item yang telah Anda pilih.
 Edit jumlah atau menghapus item dari keranjang sebelum checkout.
 Lihat total belanja Anda sebelum menyelesaikan transaksi.
 
-<img width="960" alt="image" src="https://github.com/">
 <img width="960" alt="image" src="https://github.com/andreasrs00/Watchdrit-Project-Website/blob/main/readmephoto/1.png">
 <img width="960" alt="image" src="https://github.com/andreasrs00/Watchdrit-Project-Website/blob/main/readmephoto/2.png">
 <img width="960" alt="image" src="https://github.com/andreasrs00/Watchdrit-Project-Website/blob/main/readmephoto/3.png">
