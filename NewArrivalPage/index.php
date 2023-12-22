@@ -55,11 +55,12 @@
         $idProduk = $data['id_produk'];
         $namaProduk = $data['nama_produk'];
         $hargaProduk = $data['harga_produk'];
+        $formatHarga = number_format($hargaProduk, 0, ',', '.');
         ?>
         <div class="item">
           <img src="jam<?=$i?>.png" alt="Jam <?=$i?>">
           <h3><?=$namaProduk?></h3>
-          <p>Rp<?=$hargaProduk?></p>
+          <p>Rp<?=$formatHarga?></p>
 
           <form action="../NewArrivalPage/proses.php" method="POST">
             <input type="hidden" name="idProduk" value="<?=$idProduk?>">
@@ -102,7 +103,6 @@
                       <?php
                       $totalHarga = 0;
                         $idCart = $_SESSION['id_cart'];  
-                        echo $idCart;
                         $query = "SELECT pb.id_produk, pr.nama_produk, pr.harga_produk
                                   FROM pembelian pb
                                   JOIN produk pr ON pb.id_produk = pr.id_produk
@@ -114,18 +114,19 @@
                             $id_produk = $data['id_produk'];
                             $nama_produk = $data['nama_produk'];
                             $harga_produk = $data['harga_produk'];
+                            $formatHarga = number_format($harga_produk, 0, ',', '.');
                           ?>
                             <div class="cart-item">
                                 <span>ID Produk: <?php echo $id_produk; ?></span> <br>
                                 <span>Nama Produk: <?php echo $nama_produk; ?></span> <br>
-                                <span>Harga Produk: <?php echo $harga_produk; ?></span> <br>
+                                <span>Harga Produk: <?php echo $formatHarga; ?></span> <br>
                             </div>
                           <?php
                             $totalHarga += $harga_produk;
+                            $formatTotal = number_format($totalHarga, 0, '.', '.');
                         }
 
-                        echo '</div>'; // Menutup tag div cart-items
-                        echo '<div class="total-harga">Total Harga : ' . $totalHarga . '</div>';
+                        echo '<br> <div class="total-harga">Total Harga : ' . $formatTotal . '</div>';
                         ?>
                   
             </div>

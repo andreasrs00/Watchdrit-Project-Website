@@ -64,11 +64,12 @@
         $idProduk = $data['id_produk'];
         $namaProduk = $data['nama_produk'];
         $hargaProduk = $data['harga_produk'];
+        $formatHarga = number_format($hargaProduk, 0, ',', '.');
         ?>
         <div class="item">
           <img src="sport<?=$i?>.png" alt="Jam <?=$i?>">
           <h3><?=$namaProduk?></h3>
-          <p>Rp<?=$hargaProduk?></p>
+          <p>Rp<?=$formatHarga?></p>
           <form action="./proses.php" method="POST">
             <input type="hidden" name="idProduk" value="<?=$idProduk?>">
             <input type="hidden" name="namaProduk" value="<?=$namaProduk?>">
@@ -109,11 +110,12 @@
         $idProduk = $data['id_produk'];
         $namaProduk = $data['nama_produk'];
         $hargaProduk = $data['harga_produk'];
+        $formatHarga = number_format($hargaProduk, 0, ',', '.');
         ?>
         <div class="item">
           <img src="mjam<?=$i?>.png" alt="Jam <?=$i?>">
           <h3><?=$namaProduk?></h3>
-          <p>Rp<?=$hargaProduk?></p>
+          <p>Rp<?=$formatHarga?></p>
           <form action="../collection/proses.php" method="POST">
             <input type="hidden" name="idProduk" value="<?=$idProduk?>">
             <input type="hidden" name="namaProduk" value="<?=$namaProduk?>">
@@ -154,11 +156,12 @@
         $idProduk = $data['id_produk'];
         $namaProduk = $data['nama_produk'];
         $hargaProduk = $data['harga_produk'];
+        $formatHarga = number_format($hargaProduk, 0, ',', '.');
         ?>
         <div class="item">
           <img src="wjam<?=$i?>.png" alt="Jam <?=$i?>">
           <h3><?=$namaProduk?></h3>
-          <p>Rp<?=$hargaProduk?></p>
+          <p>Rp<?=$formatHarga?></p>
           <form action="../collection/proses.php" method="POST">
             <input type="hidden" name="idProduk" value="<?=$idProduk?>">
             <input type="hidden" name="namaProduk" value="<?=$namaProduk?>">
@@ -199,11 +202,12 @@
         $idProduk = $data['id_produk'];
         $namaProduk = $data['nama_produk'];
         $hargaProduk = $data['harga_produk'];
+        $formatHarga = number_format($hargaProduk, 0, ',', '.');
         ?>
         <div class="item">
           <img src="sjam<?=$i?>.png" alt="Jam <?=$i?>">
           <h3><?=$namaProduk?></h3>
-          <p>Rp<?=$hargaProduk?></p>
+          <p>Rp<?=$formatHarga?></p>
           <form action="../collection/proses.php" method="POST">
             <input type="hidden" name="idProduk" value="<?=$idProduk?>">
             <input type="hidden" name="namaProduk" value="<?=$namaProduk?>">
@@ -244,11 +248,12 @@
         $idProduk = $data['id_produk'];
         $namaProduk = $data['nama_produk'];
         $hargaProduk = $data['harga_produk'];
+        $formatHarga = number_format($hargaProduk, 0, ',', '.');
         ?>
         <div class="item">
           <img src="kjam<?=$i?>.png" alt="Jam <?=$i?>">
           <h3><?=$namaProduk?></h3>
-          <p>Rp<?=$hargaProduk?></p>
+          <p>Rp<?=$formatHarga?></p>
           <form action="../collection/proses.php" method="POST">
             <input type="hidden" name="idProduk" value="<?=$idProduk?>">
             <input type="hidden" name="namaProduk" value="<?=$namaProduk?>">
@@ -272,25 +277,25 @@
   if(isset($_SESSION['id_cartcollection'])){
     ?>
     <!-- Button trigger modal -->
-    <button type="button" class="btn-open-cart" data-toggle="modal" data-target="#staticBackdrop">
+    <button type="button" class="btn-open-cart" data-toggle="modal" data-target="#exampleModal">
       OPEN CART
     </button>
+
     <!-- Modal -->
-      <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel">Your Cart</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="cart-items">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+          <div class="cart-items">
                       <?php
                       $totalHarga = 0;
-                        $idCart = $_SESSION['id_cartcollection'];  
-                        echo $idCart;
+                        $idCart = $_SESSION['id_cartcollection'];
                         $query = "SELECT pb.id_produk, pr.nama_produk, pr.harga_produk
                                   FROM pembelian pb
                                   JOIN produk pr ON pb.id_produk = pr.id_produk
@@ -302,24 +307,24 @@
                             $id_produk = $data['id_produk'];
                             $nama_produk = $data['nama_produk'];
                             $harga_produk = $data['harga_produk'];
+                            $formatHarga = number_format($harga_produk, 0, '.', '.');
 
                             ?>
                             <div class="cart-item">
                                 <span>ID Produk: <?php echo $id_produk; ?></span> <br>
                                 <span>Nama Produk: <?php echo $nama_produk; ?></span> <br>
-                                <span>Harga Produk: <?php echo $harga_produk; ?></span> <br>
+                                <span>Harga Produk: <?php echo $formatHarga; ?></span> <br>
                             </div>
                           <?php
                             $totalHarga += $harga_produk;
+                            $formatTotal = number_format($totalHarga, 0, '.', '.');
                         }
-
-                        echo '</div>'; // Menutup tag div cart-items
-                        echo '<div class="total-harga">Total Harga : ' . $totalHarga . '</div>';
+                        echo '<br> <div class="total-harga">Total Harga : ' . $formatTotal . '</div>';
                         ?>
                   </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <form action="../collection/proses.php" method="post">
                 <button type="submit" name="clearPembelian" class="btn btn-primary">Clear</button>
               </form>
@@ -327,11 +332,10 @@
                 <input type="hidden" name="totalHarga" value="<?=$totalHarga?>">
                 <button type="submit" name="submitPembelian" class="btn btn-primary">Buy</button>
               </form>
-            </div>
           </div>
         </div>
       </div>
-
+    </div>
     <?php
   }
 ?>

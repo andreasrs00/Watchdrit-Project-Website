@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $idCart = $_SESSION['id_cartcollection'];
         $totalHarga = $_POST['totalHarga'];
 
-        $query = "UPDATE cart SET total_pembelian = '$totalHarga'";
+        $query = "UPDATE cart SET total_pembelian = '$totalHarga' WHERE id_cart  = '$idCart'";
         $execQuery = pg_query($connection, $query);
 
         if ($execQuery) {
