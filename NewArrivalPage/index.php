@@ -35,7 +35,7 @@
               >
             </li>
             <li><a href="/Watchdrit-Project-Website/collection/index.php">Collection</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li><a href="/Watchdrit-Project-Website/LandingPage/index.php#contact">Contact Us</a></li>
           </div>
         </div>
       </div>

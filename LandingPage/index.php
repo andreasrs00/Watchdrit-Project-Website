@@ -43,8 +43,7 @@
               >
             </li>
             <li><a href="/Watchdrit-Project-Website/collection/index.php">Collection</a></li>
-            <li><a href="#">Testimoni</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li><a href="/Watchdrit-Project-Website/LandingPage/index.php#contact">Contact Us</a></li>
             <li
               id="logout"
               style="<?php echo $is_logged_in ? 'display:block;' : 'display:none;'; ?>"
@@ -132,7 +131,7 @@
         <img src="jam5.png" alt="" />
       </div>
     </div>
-    <button class="myButton">See More</button>
+    <a class="myButton" href="/Watchdrit-Project-Website/collection/index.php">See More</a>
 
     <div class="containerIsi">
       <div class="containerJudul">
@@ -159,7 +158,7 @@
         <img src="na5.png" alt="" />
       </div>
     </div>
-    <button class="myButton">See More</button>
+    <a class="myButton" href="/Watchdrit-Project-Website/NewArrivalPage/index.php" >See More</a>
 
     <div class="containerIsi">
       <div class="containerJudul">
@@ -226,7 +225,7 @@
       </div>
     </div>
 
-    <div class="contact-container">
+    <div class="contact-container" id="contact">
       <div class="shop-container">
         <h1>SHOP</h1>
         <p>

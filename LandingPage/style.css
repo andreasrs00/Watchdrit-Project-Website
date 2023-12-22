@@ -249,7 +249,7 @@ nav{
 }
 
 
-button.myButton {
+a.myButton {
   display: inline-block;
   padding: 10px 20px; /* Atur padding sesuai kebutuhan */
   font-size: 16px; /* Atur ukuran font sesuai keinginan */
@@ -264,6 +264,7 @@ button.myButton {
   justify-content: center;
   margin: 10px auto 0;
   font-family: 'Roboto Mono', monospace;
+  width: 150px;
 }
 
 /* Style ketika tombol dihover */
